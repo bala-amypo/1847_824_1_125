@@ -2,6 +2,7 @@ package com.example.demo.security;
 
 
 
-public class JwtAuthenticationFilter.java
+public class JwtAuthenticationFilter
+{
     
 }

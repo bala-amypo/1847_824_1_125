@@ -2,7 +2,7 @@ package com.example.demo.security;
 
 
 
-public class SecurityConfig.java
+public class SecurityConfig
 {
     
 }
