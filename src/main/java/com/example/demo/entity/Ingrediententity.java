@@ -103,5 +103,20 @@ public class IngredientEntity {
     public void setUpdatedAt(LocalDateTime updatedAt) {
         this.updatedAt = updatedAt;
     }
+
+    public IngredientEntity(Long id,String name,String unit, BigDecimal costPerUnit,Boolean active,LocalDateTime createdAt,LocalDateTime updatedAt)
+    this.id=id;
+    this.username=username;
+    this.email=email;
+    this.bio=bio;
+    this.active=active;
+    this.createdAt=createdAt;
+    this.updatedAt=updatedAt;
+
+    public UserProfile(){
+
+    }
+    UserProfile=new UserProfile();
     
+}
 }
