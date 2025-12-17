@@ -103,4 +103,5 @@ public class IngredientEntity {
     public void setUpdatedAt(LocalDateTime updatedAt) {
         this.updatedAt = updatedAt;
     }
+    
 }
