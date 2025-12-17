@@ -104,7 +104,7 @@ public class Ingrediententity {
         this.updatedAt = updatedAt;
     }
 
-    public Ingrediententity(Long id,String name,String unit, BigDecimal costPerUnit,Boolean active,LocalDateTime createdAt,LocalDateTime updatedAt)
+    public Ingrediententity(Long id,String name,String unit, BigDecimal costPerUnit,Boolean active,LocalDateTime createdAt,LocalDateTime updatedAt){
     this.id=id;
     this.name = name;
     this.unit = unit;
@@ -112,10 +112,10 @@ public class Ingrediententity {
     this.active = active;
     this.createdAt = createdAt;
     this.updatedAt = updatedAt;
-
+    }
     public Ingrediententity(){
 
     }
-   Ingrediententity=new Ingrediententity();
+ 
     
 }
