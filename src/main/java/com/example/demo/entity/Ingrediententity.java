@@ -1,19 +1,27 @@
 package com.example.demo.entity;
 
 
-@entity
+@Entity
 public class  Ingrediententity{
 @Id
 @GeneratedValue(strategy=GenerationType.IDENTITY)
 private Long id;
 
-@Column(unique=true)
+@Column(nullable = false,unique=true)
 private String name;
 
+@Column(nullable = false)
 private String unit;
+
+@Column(nullable = false, precision =10, scale =2)
 private BigDecimal costperUnit;
+
+@Column(nullable = false)
 private Boolean active;
-private Timestamp createdAt;
-private Timestamp update;
+
+private LocalDateTime createdAt;
+private LocalDateTime update;
+
+@
 }
 
