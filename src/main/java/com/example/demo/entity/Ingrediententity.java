@@ -13,6 +13,7 @@ private String name;
 private String unit;
 private BigDecimal costperUnit;
 private Boolean active;
-private Timestamp crea
+private Timestamp createdAt;
+private Timestamp update;
 }
 
