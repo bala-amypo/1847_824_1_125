@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
 
 @Entity
 
-public class IngredientEntity {
+public class Ingrediententity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -104,7 +104,7 @@ public class IngredientEntity {
         this.updatedAt = updatedAt;
     }
 
-    public IngredientEntity(Long id,String name,String unit, BigDecimal costPerUnit,Boolean active,LocalDateTime createdAt,LocalDateTime updatedAt)
+    public Ingrediententity(Long id,String name,String unit, BigDecimal costPerUnit,Boolean active,LocalDateTime createdAt,LocalDateTime updatedAt)
     this.id=id;
     this.name = name;
     this.unit = unit;
@@ -113,9 +113,9 @@ public class IngredientEntity {
     this.createdAt = createdAt;
     this.updatedAt = updatedAt;
 
-    public IngredientEntity(){
+    public Ingrediententity(){
 
     }
-   IngredientEntity=new IngredientEntity();
+   Ingrediententity=new Ingrediententity();
     
 }
