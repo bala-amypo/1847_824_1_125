@@ -2,7 +2,7 @@ package com.example.demo.controller;
 
 
 
-public class samplecontroller
+public class  Ingredientcontroller
 {
     
 }
