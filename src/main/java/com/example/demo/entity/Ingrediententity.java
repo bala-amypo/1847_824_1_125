@@ -22,6 +22,16 @@ private Boolean active;
 private LocalDateTime createdAt;
 private LocalDateTime update;
 
-@
+@PrePersist
+protected void onCreate(){
+    createdAt = LocalDateTime.now();
+    updateAt  = LocalDateTime.now();
+}
+@preUpdate
+protected void onUpdate(){
+    updateAt = LocalDateTime.now();
+}
+
+
 }
 
