@@ -106,14 +106,14 @@ public class IngredientEntity {
 
     public IngredientEntity(Long id,String name,String unit, BigDecimal costPerUnit,Boolean active,LocalDateTime createdAt,LocalDateTime updatedAt)
     this.id=id;
-    this.username=username;
-    this.email=email;
-    this.bio=bio;
-    this.active=active;
-    this.createdAt=createdAt;
-    this.updatedAt=updatedAt;
+    this.name = name;
+    this.unit = unit;
+    this.costPerUnit = costPerUnit;
+    this.active = active;
+    this.createdAt = createdAt;
+    this.updatedAt = updatedAt;
 
-    public UserProfile(){
+    public I(){
 
     }
     UserProfile=new UserProfile();
