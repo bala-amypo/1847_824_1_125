@@ -1,8 +1,7 @@
 package com.example.demo.entity;
 
 
-
-public class  Ingrediententity
-{
+@entity
+public class  Ingrediententity+{
     
 }
