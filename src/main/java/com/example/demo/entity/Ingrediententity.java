@@ -8,7 +8,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.PreUpdate;
 
-+
+
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
