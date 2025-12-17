@@ -2,7 +2,7 @@ package com.example.demo.entity;
 
 
 
-public class  localentity
+public class  Ingrediententity
 {
     
 }
