@@ -2,7 +2,7 @@ package com.example.demo.repository;
 
 
 
-public class IngredientRepository
+public class MenuItemRepository
 {
     
 }
