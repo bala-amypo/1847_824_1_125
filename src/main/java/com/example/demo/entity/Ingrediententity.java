@@ -113,10 +113,9 @@ public class IngredientEntity {
     this.createdAt = createdAt;
     this.updatedAt = updatedAt;
 
-    public I(){
+    public IngredientEntity(){
 
     }
-    UserProfile=new UserProfile();
+   IngredientEntity=new IngredientEntity();
     
-}
 }
