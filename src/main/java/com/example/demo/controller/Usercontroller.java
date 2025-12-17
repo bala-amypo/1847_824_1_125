@@ -2,7 +2,7 @@ package com.example.demo.controller;
 
 
 
-public class MenuItemcontroller
+public class Usercontroller
 {
     
 }
