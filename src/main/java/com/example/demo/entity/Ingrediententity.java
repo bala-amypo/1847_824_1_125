@@ -2,6 +2,7 @@ package com.example.demo.entity;
 
 
 @entity
-public class  Ingrediententity+{
+public class  Ingrediententity
+{
     
 }
