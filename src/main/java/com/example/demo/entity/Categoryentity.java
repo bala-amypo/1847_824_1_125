@@ -10,6 +10,12 @@ public class  Categoryentity{
     private Long id;
 
     @Column(unique =  true)
+    private String name;
+
+    private String description;
+    private BigDecimal sellingPrice;
+    private Boolean active;
+    private Timestamp
 
 
     
