@@ -9,6 +9,7 @@ public class  ProfitCalculationRecordentity{
     private String Menuitem;
     private BigDecimal totalCost;
 
-   @CreationTimestsamp 
+   @CreationTimestamp 
+   private Timestamp 
     
 }
