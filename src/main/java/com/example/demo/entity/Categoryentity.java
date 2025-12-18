@@ -5,8 +5,9 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Column;
 import java.lang.Boolean;
 import java.math.BigDecimal;
+import org.hibernate.annotation.CreationTimestamp;
+import org.hibernate.annotation.UpdateTime;
 import java.sql.Timestamp;
-
 
 @Entity
 public class  Categoryentity{
@@ -20,7 +21,9 @@ public class  Categoryentity{
     private String description;
     private BigDecimal sellingPrice;
     private Boolean active;
+    @CreationTimestamp
     private Timestamp createAt;
+    @UpdateTimestamp
     private Timestamp updatedAt;
 
     public Categoryentity(Boolean active, Timestamp createAt, String description, Long id, String name, BigDecimal sellingPrice, Timestamp updatedAt) {
@@ -32,9 +35,7 @@ public class  Categoryentity{
         this.sellingPrice = sellingPrice;
         this.updatedAt = updatedAt;
     }
-    @PrePersist
-    public void onCreate(){
-        createAt=new  Timestamp
+    
 
 
     public Long getId() {
