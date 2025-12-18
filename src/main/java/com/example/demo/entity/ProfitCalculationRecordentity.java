@@ -4,6 +4,11 @@ package com.example.demo.entity;
 @Entity
 public class  ProfitCalculationRecordentity{
     @id
-    @GeneratedValue(sta)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private String Menuitem;
+    private BigDecimal totalCost;
+
+   @CreationTimestsamp 
     
 }
