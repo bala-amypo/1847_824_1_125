@@ -1,5 +1,8 @@
 package com.example.demo.entity;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.
+
 
 @Entity
 public class  Userentity{
@@ -13,7 +16,18 @@ public class  Userentity{
     private String  email;
     
     private String active;
-    private String
+    private String role;
     
+    @CreationTimestamp
+    private Timestamp createdAt;
+
+    @PerPersisit
+    public void onCreate(){
+    this createAt=new Timestamp(System.currentTimeMillis());
+    }
+
+    
+
+   
     
 }
