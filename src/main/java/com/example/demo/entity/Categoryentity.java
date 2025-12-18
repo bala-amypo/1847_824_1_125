@@ -15,7 +15,8 @@ public class  Categoryentity{
     private String description;
     private BigDecimal sellingPrice;
     private Boolean active;
-    private Timestamp
+    private Timestamp createAt;
+    private Timestamp updatedAt;
 
 
     
