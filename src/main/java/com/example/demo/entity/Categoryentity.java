@@ -3,10 +3,12 @@ package com.example.demo.entity;
 
 @Entity
 public class Categoryentity {
-     @Id
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long 
 
-    
+
+
 
    
     }
