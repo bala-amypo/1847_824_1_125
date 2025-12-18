@@ -3,7 +3,7 @@ import jakarta.persistence.service;
 import com.example.demo.entity.ProfitCalculationRecordentity;
 
 @service
-public ProfitCalculationRecordservice{
+public interface ProfitCalculationRecordservice{
     public ProfitCalculation calculateProfit(Long menuItemId);
     public ProfitCalculation updateRecipeIngredient(Long id,Double quantity);
     public ProfitCalculation getIngredientFromRecipe(Long menuItemId);

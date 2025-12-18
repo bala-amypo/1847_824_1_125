@@ -3,7 +3,7 @@ import jakarta.persistence.service;
 import com.example.demo.entity.Userentity;
 
 @service
-public Userservice{
+public interface Userservice{
     public User register(RegisterRequest req);
     public User login(AuthRequest req);
 
