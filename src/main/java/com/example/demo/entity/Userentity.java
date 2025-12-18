@@ -10,7 +10,10 @@ public class  Userentity{
     private String fullname;
 
     @Column(unique=true)
-    private String  em
+    private String  email;
+    
+    private String active;
+    private String
     
     
 }
