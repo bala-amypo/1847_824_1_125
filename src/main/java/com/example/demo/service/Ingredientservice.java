@@ -1,7 +1,8 @@
 package com.example.demo.service;
 import jakarta.persistence.service;
-import com.example.demo.entity.Categoryentity;
+import com.example.demo.entity.Ingrediententity;
 @Service
-public interface Categoryservice{
-    
+public interface Ingredientservice{
+    public
+
 }
