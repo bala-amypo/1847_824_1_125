@@ -4,6 +4,10 @@ import com.example.demo.entity.RecipeIngrediententity;
 
 @service
 public RecipeIngredientservice{
-    public RecipeIngredient addIngredientToRecipe(Long menuItemID,Long ingr)
+    public RecipeIngredient addIngredientToRecipe(Long menuItemID,Long ingredientId,Double quantity);
+    public RecipeIngredient updataRecipeIngredient(Long id,Double quantity);
+    public RecipeIngredient getIngredientFromRecipe(Long id);
+    public RecipeIngredient getIngredientFromRecipe(Long id);
+    public RecipeIngredient removeIngredientFro
 
 }
