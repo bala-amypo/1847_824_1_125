@@ -4,7 +4,7 @@ import com.example.demo.entity.Userentity;
 
 @service
 public Userservice{
-    public User register(RegisterRequest req)
-    public U
+    public User register(RegisterRequest req);
+    public User login(AuthRequest req);
 
 }
