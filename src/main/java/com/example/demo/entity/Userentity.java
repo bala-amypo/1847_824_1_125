@@ -9,7 +9,8 @@ public class  Userentity{
     private Long id;
     private String fullname;
 
-    @Column(unique)
+    @Column(unique=true)
+    private String  em
     
     
 }
