@@ -12,7 +12,7 @@ import java.sql.Timestamp;
 @Entity
 public class  Categoryentity{
     @Id
-    @generationValue(strategy=GenerationType.IDENTITY)
+    @GenerationValue(strategy=GenerationType.IDENTITY)
     private Long id;
 
     @Column(unique =  true)
