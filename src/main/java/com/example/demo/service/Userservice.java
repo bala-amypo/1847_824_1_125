@@ -1,0 +1,10 @@
+package.com.example.demo.service;
+import jakarta.persistence.service;
+import com.example.demo.entity.Userentity;
+
+@service
+public Userservice{
+    public User register(RegisterRequest req)
+    public U
+
+}
