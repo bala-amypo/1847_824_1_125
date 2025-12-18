@@ -6,6 +6,8 @@ public interface Ingredientservice{
     public Ingredient createIngredient(Ingredient ingredient);
     public Ingredient updateIngredient(Long id,Ingredient ingredient);
     public Ingredient getIngredientById(Long id);
-    public Ingredient 
+    public Ingredient getAllIngredient();
+    public Ingredient deactivateInggredient();
+    
 
 }
