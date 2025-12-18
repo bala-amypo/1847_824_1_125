@@ -2,7 +2,8 @@ package com.example.demo.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-import jakarta.persistence.
+import jakarta.persistence.Column;
+import java.lang.Boolean
 
 
 @Entity
