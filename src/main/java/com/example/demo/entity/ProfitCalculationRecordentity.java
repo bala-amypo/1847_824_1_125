@@ -1,8 +1,9 @@
 package com.example.demo.entity;
 
 
-
-public class  ProfitCalculationRecordentity
-{
+@Entity
+public class  ProfitCalculationRecordentity{
+    @id
+    @GeneratedValue(sta)
     
 }
