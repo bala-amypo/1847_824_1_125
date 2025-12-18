@@ -4,6 +4,9 @@ import com.example.demo.entity.MenuItemtentity;
 @Service
 public interface MenuItemservice{
     public MenuItem createMenuItem(MenuItem item);
-    public updateM
+    public updateMenuItem(Long id,MenuItem item);
+    public getMenuItemById(Long id);
+    public getallMenuItem();
+    public deactiviateMenuItem(Long id);
 
 }
