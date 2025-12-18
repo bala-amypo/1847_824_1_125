@@ -5,7 +5,12 @@ import jakarta.persistence.Entity;
 
 @Entity
 public class  Categoryentity{
-@Id
+    @Id
+    @generationValue(strategy=GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(unique =  true)
+
 
     
 }
