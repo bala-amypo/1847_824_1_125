@@ -1,9 +1,11 @@
 package com.example.demo.entity;
 
-import jaka
+import jakarta.persistence.Entity;
 
 
 @Entity
 public class  Categoryentity{
+@Id
+
     
 }
