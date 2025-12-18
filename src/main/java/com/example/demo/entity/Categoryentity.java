@@ -3,7 +3,9 @@ package com.example.demo.entity;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Column;
-import java.lang.Boolean
+import java.lang.Boolean;
+import java.math.BigDecimal;
+import java.sql.Timestamp;
 
 
 @Entity
