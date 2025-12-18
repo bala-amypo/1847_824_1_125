@@ -13,7 +13,3 @@ public interface MenuItemRepository extends JpaRepository<MenuItementity,Long>{
 
 
 
-public class MenuItemRepository
-{
-    
-}
