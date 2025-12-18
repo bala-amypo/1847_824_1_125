@@ -36,7 +36,7 @@ public class MenuItementity {
   
    
 
-    public Categoryentity(Boolean active, Timestamp createAt, String description,
+    public MenuItementity(Boolean active, Timestamp createAt, String description,
                           Long id, String name, BigDecimal sellingPrice,
                           Timestamp updatedAt) {
         this.active = active;
