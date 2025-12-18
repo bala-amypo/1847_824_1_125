@@ -32,6 +32,10 @@ public class  Categoryentity{
         this.sellingPrice = sellingPrice;
         this.updatedAt = updatedAt;
     }
+    @PrePersist
+    public void onCreate(){
+        createAt=new  Timestamp
+
 
     public Long getId() {
         return id;
