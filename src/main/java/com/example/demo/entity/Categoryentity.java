@@ -3,7 +3,8 @@ package com.example.demo.entity;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
-import java.math.
+import java.lang.Boolean;
+import jakarta.persistence.Column;
 @Entity
 public class Categoryentity {
     @Id
