@@ -1,9 +1,9 @@
 package.com.example.demo.service;
 import jakarta.persistence.service;
-import com.example.demo.entity.ProfitCalculationentity;
+import com.example.demo.entity.ProfitCalculationRecordentity;
 
 @service
-public ProfitCalculationservice{
+public ProfitCalculationRecordservice{
     public ProfitCalculation calculateProfit(Long menuItemId);
     public ProfitCalculation updateRecipeIngredient(Long id,Double quantity);
     public ProfitCalculation getIngredientFromRecipe(Long menuItemId);

@@ -3,6 +3,7 @@ import jakarta.persistence.service;
 import com.example.demo.entity.RecipeIngrediententity;
 
 @service
-public ProfitCalculationservice{
+public RecipeIngredientservice{
+    public RecipeIngredient addIngredientToRecipe(Long menuItemID,Long ingr)
 
 }
