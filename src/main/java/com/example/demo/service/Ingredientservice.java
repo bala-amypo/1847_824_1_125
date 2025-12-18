@@ -3,6 +3,9 @@ import jakarta.persistence.service;
 import com.example.demo.entity.Ingrediententity;
 @Service
 public interface Ingredientservice{
-    public
+    public Ingredient createIngredient(Ingredient ingredient);
+    public Ingredient updateIngredient(Long id,Ingredient ingredient);
+    public Ingredient getIngredientById(Long id);
+    public Ingredient 
 
 }
