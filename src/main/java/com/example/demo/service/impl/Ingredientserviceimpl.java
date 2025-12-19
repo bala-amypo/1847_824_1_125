@@ -9,5 +9,10 @@ import java.util.List;
 @Service
 public class Ingredientserviceimpl implements Ingredientservice{
 
-    private final IngredientRepository ingredientR
+    private final IngredientRepository ingredientRepository;
+    public Ingredientserviceimpl(IngredientRepository ingredientRepository){
+        this.ingredientRepository=ingredientRepository;
+    }
+    @Override
+    public ingredient
 }
