@@ -11,4 +11,4 @@ public class Categoryserviceimpl implement Categoryservice
 
 @Autowired
 CategoryRepository upr;
-public 
+public Categoryentity createCategoryentity(Categoryentity)
