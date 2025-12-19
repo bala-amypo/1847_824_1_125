@@ -46,4 +46,3 @@ public class Ingredientserviceimpl implements Ingredientservice{
         ingredientRepository.save(ingredient);
     }
 }
-}

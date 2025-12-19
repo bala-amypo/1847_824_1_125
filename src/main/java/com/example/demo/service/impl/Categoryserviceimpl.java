@@ -1,14 +1,14 @@
-import com.example.demo.service.impl;
-import com.example.demo.repository.CategoryRepository;
-import com.example.demo.entity.Categoryentity;
-import com.example.demo.service.Categoryservice;
-import org.springframework.stereotype.service;
-import org.springframework.beans.factory.annotation.Autowired;
+// import com.example.demo.service.impl;
+// import com.example.demo.repository.CategoryRepository;
+// import com.example.demo.entity.Categoryentity;
+// import com.example.demo.service.Categoryservice;
+// import org.springframework.stereotype.service;
+// import org.springframework.beans.factory.annotation.Autowired;
 
 
-@Service
-public class Categoryserviceimpl implement Categoryservice
+// @Service
+// public class Categoryserviceimpl implement Categoryservice
 
-@Autowired
-CategoryRepository upr;
-public Categoryentity createCategoryentity(Categoryentity)
+// @Autowired
+// CategoryRepository upr;
+// public Categoryentity createCategoryentity(Categoryentity)
