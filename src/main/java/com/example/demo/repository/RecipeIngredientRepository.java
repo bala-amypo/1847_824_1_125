@@ -5,6 +5,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.example.demo.entity. RecipeIngrediententity;
 public interface  RecipeIngredientRepository extends JpaRepository< RecipeIngrediententity,Long>{
-    List<RecipeIngredient>
+    List<RecipeIngredient>findByMenuItem(Long menuItemId);
 
 }
