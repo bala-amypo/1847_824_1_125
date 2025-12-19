@@ -8,3 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 @Service
 public class Categoryserviceimpl implement Categoryservice
+
+@Autowired
+CategoryRepository upr;
+public 
