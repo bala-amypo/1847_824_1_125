@@ -10,42 +10,43 @@ import jakarta.persistence.PreUpdate;
 
 
 import java.math.BigDecimal;
-import java.sql.Timestamp;
-
+import java.time.LocalDateTime;
 
 @Entity
 
-public class IngredientEntity {
+public class Ingrediententity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(unique = true, nullable = false)
+    @Column(nullable = false, unique = true)
     private String name;
 
     @Column(nullable = false)
-    private Double pricePerUnit;
+    private String unit;
+
+    @Column(nullable = false, precision = 10, scale = 2)
+    private BigDecimal costPerUnit;
 
     @Column(nullable = false)
     private Boolean active = true;
 
-    private Timestamp createdAt;
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
 
     @PrePersist
-    public void onCreate() {
-        this.createdAt = new Timestamp(System.currentTimeMillis());
+    protected void onCreate() {
+        createdAt = LocalDateTime.now();
+        updatedAt = LocalDateTime.now();
+    }
+
+    @PreUpdate
+    protected void onUpdate() {
+        updatedAt = LocalDateTime.now();
     }
 
     
-    public IngredientEntity() {}
-
-    public IngredientEntity(String name, Double pricePerUnit) {
-        this.name = name;
-        this.pricePerUnit = pricePerUnit;
-    }
-
-   
 
     public Long getId() {
         return id;
@@ -63,12 +64,20 @@ public class IngredientEntity {
         this.name = name;
     }
 
-    public Double getPricePerUnit() {
-        return pricePerUnit;
+    public String getUnit() {
+        return unit;
     }
 
-    public void setPricePerUnit(Double pricePerUnit) {
-        this.pricePerUnit = pricePerUnit;
+    public void setUnit(String unit) {
+        this.unit = unit;
+    }
+
+    public BigDecimal getCostPerUnit() {
+        return costPerUnit;
+    }
+
+    public void setCostPerUnit(BigDecimal costPerUnit) {
+        this.costPerUnit = costPerUnit;
     }
 
     public Boolean getActive() {
@@ -79,11 +88,34 @@ public class IngredientEntity {
         this.active = active;
     }
 
-    public Timestamp getCreatedAt() {
+    public LocalDateTime getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(Timestamp createdAt) {
+    public void setCreatedAt(LocalDateTime createdAt) {
         this.createdAt = createdAt;
     }
+
+    public LocalDateTime getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(LocalDateTime updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+
+    public Ingrediententity(Long id,String name,String unit, BigDecimal costPerUnit,Boolean active,LocalDateTime createdAt,LocalDateTime updatedAt){
+    this.id=id;
+    this.name = name;
+    this.unit = unit;
+    this.costPerUnit = costPerUnit;
+    this.active = active;
+    this.createdAt = createdAt;
+    this.updatedAt = updatedAt;
+    }
+    public Ingrediententity(){
+
+    }
+ 
+    
 }
