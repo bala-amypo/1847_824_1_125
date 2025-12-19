@@ -10,11 +10,11 @@ import jakarta.persistence.PreUpdate;
 
 
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
+import java.sql.Timestamp;
 
 
 @Entity
-@Table(name = "ingredients")
+
 public class IngredientEntity {
 
     @Id
