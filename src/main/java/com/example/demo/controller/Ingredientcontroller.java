@@ -31,3 +31,5 @@ public class Ingredientcontroller {
         ingredientservice.deactivateIngredient(id);
     }
 }
+
+
