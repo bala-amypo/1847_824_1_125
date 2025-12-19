@@ -22,7 +22,7 @@ public class IngredientEntity {
     private String name;
 
     @Column(nullable = false)
-    private Double pricePerUnit;
+    private Double costPerUnit;
 
     @Column(nullable = false)
     private Boolean active = true;
@@ -37,9 +37,9 @@ public class IngredientEntity {
     public IngredientEntity() {
     }
 
-    public IngredientEntity(String name, Double pricePerUnit) {
+    public IngredientEntity(String name, Double costPerUnit) {
         this.name = name;
-        this.pricePerUnit = pricePerUnit;
+        this.pricePerUnit = costPerUnit;
     }
 
     public Long getId() {
@@ -50,7 +50,7 @@ public class IngredientEntity {
         return name;
     }
 
-    public Double getPricePerUnit() {
+    public Double getcostPerUnit() {
         return pricePerUnit;
     }
 
@@ -66,7 +66,7 @@ public class IngredientEntity {
         this.name = name;
     }
 
-    public void setPricePerUnit(Double pricePerUnit) {
+    public void setPricePerUnit(Double costPerUnit) {
         this.pricePerUnit = pricePerUnit;
     }
 
