@@ -7,4 +7,4 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 
 @Service
-public cal
+public class Categoryserviceimpl implement Categoryservice
