@@ -1,52 +1,58 @@
 package com.example.demo.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "recipe_ingredients")
-public class RecipeIngrediententity {
+public class RecipeIngredientEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "menu_item_id")
-    private MenuItementity menuItem;
+    private Long menuItemId;
+    private String ingredientName;
+    private Double quantity;
 
-    @ManyToOne
-    @JoinColumn(name = "ingredient_id")
-    private Ingredientenity ingredient;
-
-    private Double quantityRequired;
-
-    
-    public RecipeIngrediententity() {}
-
-    public RecipeIngrediententity(Long id, MenuItementity menuItem,
-                                  Ingredientenity ingredient,
-                                  Double quantityRequired) {
-        this.id = id;
-        this.menuItem = menuItem;
-        this.ingredient = ingredient;
-        this.quantityRequired = quantityRequired;
+    public RecipeIngredientEntity() {
     }
 
-    public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
+    public RecipeIngredientEntity(Long id, Long menuItemId, String ingredientName, Double quantity) {
+        this.id = id;
+        this.menuItemId = menuItemId;
+        this.ingredientName = ingredientName;
+        this.quantity = quantity;
+    }
 
-    public MenuItementity getMenuItem() { return menuItem; }
-    public void setMenuItem(MenuItementity menuItem) { this.menuItem = menuItem; }
+    public Long getId() {
+        return id;
+    }
 
-    public Ingredientenity getIngredient() { return ingredient; }
-    public void setIngredient(Ingrediententity ingredient) { this.ingredient = ingredient; }
+    public Long getMenuItemId() {
+        return menuItemId;
+    }
 
-    public Double getQuantityRequired() { return quantityRequired; }
-    public void setQuantityRequired(Double quantityRequired) { this.quantityRequired = quantityRequired; }
+    public String getIngredientName() {
+        return ingredientName;
+    }
+
+    public Double getQuantity() {
+        return quantity;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setMenuItemId(Long menuItemId) {
+        this.menuItemId = menuItemId;
+    }
+
+    public void setIngredientName(String ingredientName) {
+        this.ingredientName = ingredientName;
+    }
+
+    public void setQuantity(Double quantity) {
+        this.quantity = quantity;
+    }
 }

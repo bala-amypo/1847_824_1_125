@@ -1,16 +1,13 @@
-
-
 package com.example.demo.service;
 
-import com.example.demo.entity.RecipeIngrediententity;
-
+import com.example.demo.entity.RecipeIngredientEntity;
 import java.util.List;
 
-public interface RecipeIngredientservice {
+public interface RecipeIngredientService {
 
-    RecipeIngrediententity addIngredientToRecipe(RecipeIngrediententity recipeIngredient);
+    RecipeIngredientEntity add(RecipeIngredientEntity ingredient);
 
-    List<RecipeIngrediententity> getIngredientsByMenuItem(Long menuItemId);
+    List<RecipeIngredientEntity> getByMenuItem(Long menuItemId);
 
-    void removeIngredient(Long id);
+    void delete(Long id);
 }
