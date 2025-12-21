@@ -8,13 +8,13 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
+
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "profit_records")
+
 public class ProfitCalculationRecordentity {
 
     @Id
@@ -30,10 +30,9 @@ public class ProfitCalculationRecordentity {
 
     private LocalDateTime calculatedAt = LocalDateTime.now();
 
-    // No-Args Constructor
+   
     public ProfitCalculationRecordentity() {}
 
-    // All-Args Constructor
     public ProfitCalculationRecordentity(Long id, MenuItementity menuItem,
                                          BigDecimal totalCost,
                                          BigDecimal profitMargin) {
@@ -43,8 +42,10 @@ public class ProfitCalculationRecordentity {
         this.profitMargin = profitMargin;
     }
 
-    // Getters & Setters
-    public Long getId() { return id; }
+   
+    public Long getId(){
+        return id;
+    }
     public void setId(Long id) { this.id = id; }
 
     public MenuItementity getMenuItem() { return menuItem; }

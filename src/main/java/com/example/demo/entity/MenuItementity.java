@@ -33,7 +33,7 @@ public class MenuItementity {
 
     public MenuItementity() {}
 
-    // All-Args Constructor
+  
     public MenuItementity(Long id, String name, BigDecimal sellingPrice,
                           Categoryentity category, Boolean active) {
         this.id = id;
@@ -43,19 +43,39 @@ public class MenuItementity {
         this.active = active;
     }
 
-    // Getters & Setters
-    public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
+    
+    public Long getId(){
+        return id;
+    }
+    public void setId(Long id){
+    this.id = id;
+    }
 
-    public String getName() { return name; }
-    public void setName(String name) { this.name = name; }
+    public String getName(){
+        return name;
+    }
+    public void setName(String name){
+        this.name = name;
+    }
 
-    public BigDecimal getSellingPrice() { return sellingPrice; }
-    public void setSellingPrice(BigDecimal sellingPrice) { this.sellingPrice = sellingPrice; }
+    public BigDecimal getSellingPrice(){
+        return sellingPrice;
+    }
+    public void setSellingPrice(BigDecimal sellingPrice){
+        this.sellingPrice = sellingPrice;
+    }
 
-    public Categoryentity getCategory() { return category; }
-    public void setCategory(Categoryentity category) { this.category = category; }
+    public Categoryentity getCategory(){
+        return category;
+    }
+    public void setCategory(Categoryentity category){
+        this.category = category;
+    }
 
-    public Boolean getActive() { return active; }
-    public void setActive(Boolean active) { this.active = active; }
+    public Boolean getActive(){
+        return active;
+    }
+    public void setActive(Boolean active){
+        this.active = active; 
+    }
 }
