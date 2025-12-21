@@ -1,45 +1,47 @@
+
+
 package com.example.demo.controller;
 
-import com.example.demo.entity.MenuItem;
-import com.example.demo.service.MenuItemService;
+import com.example.demo.entity.MenuItementity;
+import com.example.demo.service.MenuItemservice;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("/api/menu-items")
-public class MenuItemController {
+public class MenuItemcontroller {
 
-    private final MenuItemService menuItemService;
+    private final MenuItemservice service;
 
-    public MenuItemController(MenuItemService menuItemService) {
-        this.menuItemService = menuItemService;
+    public MenuItemcontroller(MenuItemservice service) {
+        this.service = service;
     }
 
     @PostMapping
-    public MenuItem createMenuItem(@RequestBody MenuItem menuItem) {
-        return menuItemService.createMenuItem(menuItem);
-    }
-
-    @PutMapping("/{id}")
-    public MenuItem updateMenuItem(
-            @PathVariable Long id,
-            @RequestBody MenuItem menuItem) {
-        return menuItemService.updateMenuItem(id, menuItem);
-    }
-
-    @GetMapping("/{id}")
-    public MenuItem getMenuItem(@PathVariable Long id) {
-        return menuItemService.getMenuItemById(id);
+    public MenuItementity create(@RequestBody MenuItementity item) {
+        return service.create(item);
     }
 
     @GetMapping
-    public List<MenuItem> getAllMenuItems() {
-        return menuItemService.getAllMenuItems();
+    public List<MenuItementity> getAll() {
+        return service.getAll();
+    }
+
+    @GetMapping("/{id}")
+    public MenuItementity getById(@PathVariable Long id) {
+        return service.getById(id);
+    }
+
+    @PutMapping("/{id}")
+    public MenuItementity update(
+            @PathVariable Long id,
+            @RequestBody MenuItementity item) {
+        return service.update(id, item);
     }
 
     @PutMapping("/{id}/deactivate")
-    public void deactivateMenuItem(@PathVariable Long id) {
-        menuItemService.deactivateMenuItem(id);
+    public void deactivate(@PathVariable Long id) {
+        service.deactivate(id);
     }
 }

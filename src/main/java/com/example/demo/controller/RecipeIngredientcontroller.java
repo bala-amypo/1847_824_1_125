@@ -1,40 +1,43 @@
+
+
 package com.example.demo.controller;
 
-import com.example.demo.entity.RecipeIngredient;
-import com.example.demo.service.RecipeIngredientService;
+import com.example.demo.entity.RecipeIngrediententity;
+import com.example.demo.service.RecipeIngredientservice;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("/api/recipe-ingredients")
-public class RecipeIngredientController {
+public class RecipeIngredientcontroller {
 
-    private final RecipeIngredientService recipeIngredientService;
+    private final RecipeIngredientservice service;
 
-    public RecipeIngredientController(RecipeIngredientService recipeIngredientService) {
-        this.recipeIngredientService = recipeIngredientService;
+    public RecipeIngredientcontroller(RecipeIngredientservice service) {
+        this.service = service;
     }
 
-    @PostMapping("/add")
-    public RecipeIngredient addIngredientToRecipe(
-            @RequestParam Long menuItemId,
-            @RequestParam Long ingredientId,
-            @RequestParam Double quantity) {
-
-        return recipeIngredientService
-                .addIngredientToRecipe(menuItemId, ingredientId, quantity);
+    @PostMapping
+    public RecipeIngrediententity add(@RequestBody RecipeIngrediententity recipe) {
+        return service.add(recipe);
     }
 
     @GetMapping("/menu/{menuItemId}")
-    public List<RecipeIngredient> getIngredientsByMenuItem(
+    public List<RecipeIngrediententity> getByMenuItem(
             @PathVariable Long menuItemId) {
+        return service.getByMenuItem(menuItemId);
+    }
 
-        return recipeIngredientService.getIngredientsByMenuItem(menuItemId);
+    @PutMapping("/{id}")
+    public RecipeIngrediententity update(
+            @PathVariable Long id,
+            @RequestBody RecipeIngrediententity recipe) {
+        return service.update(id, recipe);
     }
 
     @DeleteMapping("/{id}")
-    public void removeRecipeIngredient(@PathVariable Long id) {
-        recipeIngredientService.removeRecipeIngredient(id);
+    public void delete(@PathVariable Long id) {
+        service.delete(id);
     }
 }

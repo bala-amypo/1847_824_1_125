@@ -1,42 +1,46 @@
+
 package com.example.demo.controller;
 
-import com.example.demo.entity.Category;
-import com.example.demo.service.CategoryService;
+import com.example.demo.entity.Categoryentity;
+import com.example.demo.service.Categoryservice;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("/api/categories")
-public class CategoryController {
+public class Categorycontroller {
 
-    private final CategoryService categoryService;
+    private final Categoryservice service;
 
-    public CategoryController(CategoryService categoryService) {
-        this.categoryService = categoryService;
+    public Categorycontroller(Categoryservice service) {
+        this.service = service;
     }
 
     @PostMapping
-    public Category createCategory(@RequestBody Category category) {
-        return categoryService.createCategory(category);
-    }
-
-    @PutMapping("/{id}")
-    public Category updateCategory(
-            @PathVariable Long id,
-            @RequestBody Category category) {
-        return categoryService.updateCategory(id, category);
+    public Categoryentity create(@RequestBody Categoryentity category) {
+        return service.create(category);
     }
 
     @GetMapping
-    public List<Category> getAllCategories() {
-        return categoryService.getAllCategories();
+    public List<Categoryentity> getAll() {
+        return service.getAll();
+    }
+
+    @GetMapping("/{id}")
+    public Categoryentity getById(@PathVariable Long id) {
+        return service.getById(id);
+    }
+
+    @PutMapping("/{id}")
+    public Categoryentity update(
+            @PathVariable Long id,
+            @RequestBody Categoryentity category) {
+        return service.update(id, category);
     }
 
     @PutMapping("/{id}/deactivate")
-    public void deactivateCategory(@PathVariable Long id) {
-        categoryService.deactivateCategory(id);
+    public void deactivate(@PathVariable Long id) {
+        service.deactivate(id);
     }
 }
-
-
