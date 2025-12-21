@@ -1,46 +1,47 @@
 
+
 package com.example.demo.controller;
 
-import com.example.demo.entity.Ingrediententity;
-import com.example.demo.service.Ingredientservice;
+import com.example.demo.entity.IngredientEntity;
+import com.example.demo.service.IngredientService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/ingredients")
-public class Ingredientcontroller {
+@RequestMapping("/api/ingredients")
+public class IngredientController {
 
-    private final Ingredientservice service;
+    private final IngredientService ingredientService;
 
-    public Ingredientcontroller(Ingredientservice service) {
-        this.service = service;
+    public IngredientController(IngredientService ingredientService) {
+        this.ingredientService = ingredientService;
     }
 
     @PostMapping
-    public Ingrediententity create(@RequestBody Ingrediententity ingredient) {
-        return service.create(ingredient);
+    public IngredientEntity create(@RequestBody IngredientEntity ingredient) {
+        return ingredientService.createIngredient(ingredient);
     }
 
     @GetMapping
-    public List<Ingrediententity> getAll() {
-        return service.getAll();
+    public List<IngredientEntity> getAll() {
+        return ingredientService.getAllIngredients();
     }
 
     @GetMapping("/{id}")
-    public Ingrediententity getById(@PathVariable Long id) {
-        return service.getById(id);
+    public IngredientEntity getById(@PathVariable Long id) {
+        return ingredientService.getIngredientById(id);
     }
 
     @PutMapping("/{id}")
-    public Ingrediententity update(
+    public IngredientEntity update(
             @PathVariable Long id,
-            @RequestBody Ingrediententity ingredient) {
-        return service.update(id, ingredient);
+            @RequestBody IngredientEntity ingredient) {
+        return ingredientService.updateIngredient(id, ingredient);
     }
 
     @DeleteMapping("/{id}")
     public void deactivate(@PathVariable Long id) {
-        service.deactivate(id);
+        ingredientService.deactivateIngredient(id);
     }
 }
