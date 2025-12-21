@@ -1,14 +1,19 @@
+
 package com.example.demo.service;
-import jakarta.persistence.service;
-import com.example.demo.entity.Ingrediententity;
-@Service
-public interface Ingredientservice{
-    public Ingredient createIngredient(Ingredient ingredient);
-    public Ingredient updateIngredient(Long id,Ingredient ingredient);
-    public Ingredient getIngredientById(Long id);
-    public Ingredient getAllIngredient();
-    public Ingredient deactivateInggredient();
-    
 
+import com.example.demo.entity.Ingredientenity;
+
+import java.util.List;
+
+public interface Ingredientservice {
+
+    Ingredientenity createIngredient(Ingrediententity ingredient);
+
+    Ingredientenity updateIngredient(Long id, Ingredientenity ingredient);
+
+    Ingredientenity getIngredientById(Long id);
+
+    List<Ingrediententity> getAllIngredients();
+
+    void deleteIngredient(Long id);
 }
-

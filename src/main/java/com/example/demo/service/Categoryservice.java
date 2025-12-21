@@ -1,12 +1,21 @@
+
+
 package com.example.demo.service;
-import jakarta.persistence.service;
+
 import com.example.demo.entity.Categoryentity;
-@Service
-public interface Categoryservice{
-    public Category createCategory(Category category);
-    public Category updateCategory(Long id,Category category);
-    public Category getCategoryById(Long id);
-    public Category getAllCategory();
-    public Category deactiveCategory(Long id);
+
+import java.util.List;
+
+public interface Categoryservice {
+
+    Categoryentity createCategory(Categoryentity category);
+
+    Categoryentity updateCategory(Long id, Categoryentity category);
+
+    Categoryentity getCategoryById(Long id);
+
+    List<Categoryentity> getAllCategories();
+
+    void deleteCategory(Long id);
 }
 
