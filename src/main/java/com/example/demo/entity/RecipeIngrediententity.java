@@ -10,7 +10,7 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "recipe_ingredients")
+
 public class RecipeIngrediententity {
 
     @Id
@@ -27,10 +27,10 @@ public class RecipeIngrediententity {
 
     private Double quantityRequired;
 
-    // No-Args Constructor
+   
     public RecipeIngrediententity() {}
 
-    // All-Args Constructor
+    
     public RecipeIngrediententity(Long id, MenuItementity menuItem,
                                   Ingredientenity ingredient,
                                   Double quantityRequired) {
@@ -40,16 +40,30 @@ public class RecipeIngrediententity {
         this.quantityRequired = quantityRequired;
     }
 
-    // Getters & Setters
-    public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
 
-    public MenuItementity getMenuItem() { return menuItem; }
-    public void setMenuItem(MenuItementity menuItem) { this.menuItem = menuItem; }
+    public Long getId(){
+        return id; 
+    }
+    public void setId(Long id){
+        this.id = id; 
+    }
 
-    public Ingredientenity getIngredient() { return ingredient; }
-    public void setIngredient(Ingrediententity ingredient) { this.ingredient = ingredient; }
+    public MenuItementity getMenuItem(){
+        return menuItem;
+    }
+    public void setMenuItem(MenuItementity menuItem){
+        this.menuItem = menuItem;
+    }
 
-    public Double getQuantityRequired() { return quantityRequired; }
+    public Ingredientenity getIngredient(){
+        return ingredient;
+    }
+    public void setIngredient(Ingrediententity ingredient){
+        this.ingredient = ingredient;
+        }
+
+    public Double getQuantityRequired(){
+        return quantityRequired;
+    }
     public void setQuantityRequired(Double quantityRequired) { this.quantityRequired = quantityRequired; }
 }
