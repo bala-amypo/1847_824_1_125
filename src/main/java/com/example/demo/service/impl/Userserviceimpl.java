@@ -3,16 +3,16 @@
 package com.example.demo.service.impl;
 
 import com.example.demo.entity.Userentity;
-import com.example.demo.repository.UserRespository;
+import com.example.demo.repository.UserRepository;
 import com.example.demo.service.Userservice;
 import org.springframework.stereotype.Service;
 
 @Service
 public class Userserviceimpl implements Userservice {
 
-    private final UserRespository repository;
+    private final UserRepository repository;
 
-    public Userserviceimpl(UserRespository repository) {
+    public Userserviceimpl(UserRepository repository) {
         this.repository = repository;
     }
 
@@ -23,6 +23,6 @@ public class Userserviceimpl implements Userservice {
 
     @Override
     public Userentity getById(Long id) {
-        return repository.findById(id).orElseThrow();
+        return repository.findById(id).orElseThrow(null);
     }
 }
