@@ -1,13 +1,13 @@
 package com.example.demo.controller;
 
+import com.example.demo.dto.AuthRequest;
+import com.example.demo.dto.RegisterRequest;
 import com.example.demo.entity.UserEntity;
 import com.example.demo.service.UserService;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
 @RestController
-@RequestMapping("/users")
+@RequestMapping("/auth")
 public class UserController {
 
     private final UserService service;
@@ -16,13 +16,13 @@ public class UserController {
         this.service = service;
     }
 
-    @PostMapping
-    public UserEntity create(@RequestBody UserEntity user) {
-        return service.create(user);
+    @PostMapping("/register")
+    public UserEntity register(@RequestBody RegisterRequest request) {
+        return service.register(request);
     }
 
-    @GetMapping
-    public List<UserEntity> getAll() {
-        return service.getAll();
+    @PostMapping("/login")
+    public UserEntity login(@RequestBody AuthRequest request) {
+        return service.login(request);
     }
 }
