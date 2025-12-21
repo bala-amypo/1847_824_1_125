@@ -8,12 +8,12 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-
+import jakarta.persistence.Table;
 
 import java.math.BigDecimal;
 
 @Entity
-
+@Table(name = "menu_items")
 public class MenuItementity {
 
     @Id
@@ -31,9 +31,10 @@ public class MenuItementity {
 
     private Boolean active = true;
 
+    
     public MenuItementity() {}
 
-  
+    
     public MenuItementity(Long id, String name, BigDecimal sellingPrice,
                           Categoryentity category, Boolean active) {
         this.id = id;
@@ -43,39 +44,19 @@ public class MenuItementity {
         this.active = active;
     }
 
-    
-    public Long getId(){
-        return id;
-    }
-    public void setId(Long id){
-    this.id = id;
-    }
 
-    public String getName(){
-        return name;
-    }
-    public void setName(String name){
-        this.name = name;
-    }
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
 
-    public BigDecimal getSellingPrice(){
-        return sellingPrice;
-    }
-    public void setSellingPrice(BigDecimal sellingPrice){
-        this.sellingPrice = sellingPrice;
-    }
+    public String getName() { return name; }
+    public void setName(String name) { this.name = name; }
 
-    public Categoryentity getCategory(){
-        return category;
-    }
-    public void setCategory(Categoryentity category){
-        this.category = category;
-    }
+    public BigDecimal getSellingPrice() { return sellingPrice; }
+    public void setSellingPrice(BigDecimal sellingPrice) { this.sellingPrice = sellingPrice; }
 
-    public Boolean getActive(){
-        return active;
-    }
-    public void setActive(Boolean active){
-        this.active = active; 
-    }
+    public Categoryentity getCategory() { return category; }
+    public void setCategory(Categoryentity category) { this.category = category; }
+
+    public Boolean getActive() { return active; }
+    public void setActive(Boolean active) { this.active = active; }
 }

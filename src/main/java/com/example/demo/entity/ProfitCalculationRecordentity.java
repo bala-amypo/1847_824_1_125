@@ -1,5 +1,4 @@
 
-
 package com.example.demo.entity;
 
 import jakarta.persistence.Entity;
@@ -8,13 +7,13 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-
+import jakarta.persistence.Table;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Entity
-
+@Table(name = "profit_records")
 public class ProfitCalculationRecordentity {
 
     @Id
@@ -30,7 +29,6 @@ public class ProfitCalculationRecordentity {
 
     private LocalDateTime calculatedAt = LocalDateTime.now();
 
-   
     public ProfitCalculationRecordentity() {}
 
     public ProfitCalculationRecordentity(Long id, MenuItementity menuItem,
@@ -42,36 +40,17 @@ public class ProfitCalculationRecordentity {
         this.profitMargin = profitMargin;
     }
 
-   
-    public Long getId(){
-        return id;
-    }
-    public void setId(Long id){
-        this.id = id;
-    }
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
 
-    public MenuItementity getMenuItem(){
-        return menuItem;
-    }
-    public void setMenuItem(MenuItementity menuItem){
-        this.menuItem = menuItem; 
-    }
+    public MenuItementity getMenuItem() { return menuItem; }
+    public void setMenuItem(MenuItementity menuItem) { this.menuItem = menuItem; }
 
-    public BigDecimal getTotalCost(){
-        return totalCost; 
-    }
-    public void setTotalCost(BigDecimal totalCost){
-        this.totalCost = totalCost; 
-    }
+    public BigDecimal getTotalCost() { return totalCost; }
+    public void setTotalCost(BigDecimal totalCost) { this.totalCost = totalCost; }
 
-    public BigDecimal getProfitMargin(){
-        return profitMargin; 
-    }
-    public void setProfitMargin(BigDecimal profitMargin){
-        this.profitMargin = profitMargin; 
-    }
+    public BigDecimal getProfitMargin() { return profitMargin; }
+    public void setProfitMargin(BigDecimal profitMargin) { this.profitMargin = profitMargin; }
 
-    public LocalDateTime getCalculatedAt(){
-        return calculatedAt; 
-    }
+    public LocalDateTime getCalculatedAt() { return calculatedAt; }
 }

@@ -1,4 +1,3 @@
-
 package com.example.demo.entity;
 
 import jakarta.persistence.Entity;
@@ -10,7 +9,7 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
-
+@Table(name = "recipe_ingredients")
 public class RecipeIngrediententity {
 
     @Id
@@ -23,16 +22,15 @@ public class RecipeIngrediententity {
 
     @ManyToOne
     @JoinColumn(name = "ingredient_id")
-    private Ingrediententity ingredient;
+    private Ingredientenity ingredient;
 
     private Double quantityRequired;
 
-   
+    
     public RecipeIngrediententity() {}
 
-    
     public RecipeIngrediententity(Long id, MenuItementity menuItem,
-                                  Ingrediententity ingredient,
+                                  Ingredientenity ingredient,
                                   Double quantityRequired) {
         this.id = id;
         this.menuItem = menuItem;
@@ -40,32 +38,15 @@ public class RecipeIngrediententity {
         this.quantityRequired = quantityRequired;
     }
 
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
 
-    public Long getId(){
-        return id; 
-    }
-    public void setId(Long id){
-        this.id = id; 
-    }
+    public MenuItementity getMenuItem() { return menuItem; }
+    public void setMenuItem(MenuItementity menuItem) { this.menuItem = menuItem; }
 
-    public MenuItementity getMenuItem(){
-        return menuItem;
-    }
-    public void setMenuItem(MenuItementity menuItem){
-        this.menuItem = menuItem;
-    }
+    public Ingredientenity getIngredient() { return ingredient; }
+    public void setIngredient(Ingrediententity ingredient) { this.ingredient = ingredient; }
 
-    public Ingrediententity getIngredient(){
-        return ingredient;
-    }
-    public void setIngredient(Ingrediententity ingredient){
-        this.ingredient = ingredient;
-    }
-
-    public Double getQuantityRequired(){
-        return quantityRequired;
-    }
-    public void setQuantityRequired(Double quantityRequired){
-        this.quantityRequired = quantityRequired; 
-    }
+    public Double getQuantityRequired() { return quantityRequired; }
+    public void setQuantityRequired(Double quantityRequired) { this.quantityRequired = quantityRequired; }
 }
