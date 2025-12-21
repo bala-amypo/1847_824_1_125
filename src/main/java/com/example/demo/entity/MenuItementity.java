@@ -8,12 +8,12 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
+
 
 import java.math.BigDecimal;
 
 @Entity
-@Table(name = "menu_items")
+
 public class MenuItementity {
 
     @Id
@@ -31,7 +31,6 @@ public class MenuItementity {
 
     private Boolean active = true;
 
-    // No-Args Constructor
     public MenuItementity() {}
 
     // All-Args Constructor

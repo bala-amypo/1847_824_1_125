@@ -86,10 +86,18 @@ public class Ingredientenity {
         this.costPerUnit = costPerUnit;
     }
 
-    public Boolean getActive() { return active; }
-    public void setActive(Boolean active) { this.active = active; }
+    public Boolean getActive(){
+        return active; 
+    }
+    public void setActive(Boolean active){
+        this.active = active;
+    }
 
-    public LocalDateTime getCreatedAt() { return createdAt; }
-    public LocalDateTime getUpdatedAt() { return updatedAt; }
+    public LocalDateTime getCreatedAt(){
+        return createdAt;
+    }
+    public LocalDateTime getUpdatedAt(){
+        return updatedAt;
+    }
 }
 
