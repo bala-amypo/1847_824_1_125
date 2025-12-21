@@ -3,7 +3,7 @@
 package com.example.demo.service.impl;
 
 import com.example.demo.entity.ProfitCalculationRecordentity;
-import com.example.demo.repository.MenuItemrepositrory;
+import com.example.demo.repository.MenuItemrepository;
 import com.example.demo.repository.ProfitCalculationRecordRepostiory;
 import com.example.demo.repository.RecipeIngredientRepository;
 import com.example.demo.service.ProfitCalculationRecordsevice;

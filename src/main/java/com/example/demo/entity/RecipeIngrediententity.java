@@ -23,7 +23,7 @@ public class RecipeIngrediententity {
 
     @ManyToOne
     @JoinColumn(name = "ingredient_id")
-    private Ingredientenity ingredient;
+    private Ingrediententity ingredient;
 
     private Double quantityRequired;
 
@@ -32,7 +32,7 @@ public class RecipeIngrediententity {
 
     
     public RecipeIngrediententity(Long id, MenuItementity menuItem,
-                                  Ingredientenity ingredient,
+                                  Ingrediententity ingredient,
                                   Double quantityRequired) {
         this.id = id;
         this.menuItem = menuItem;
@@ -55,7 +55,7 @@ public class RecipeIngrediententity {
         this.menuItem = menuItem;
     }
 
-    public Ingredientenity getIngredient(){
+    public Ingrediententity getIngredient(){
         return ingredient;
     }
     public void setIngredient(Ingrediententity ingredient){

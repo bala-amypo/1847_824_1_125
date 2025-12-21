@@ -2,7 +2,7 @@
 package com.example.demo.service.impl;
 
 import com.example.demo.entity.MenuItementity;
-import com.example.demo.repository.MenuItemrepositrory;
+import com.example.demo.repository.MenuItemrepository;
 import com.example.demo.service.MenuItemservice;
 import org.springframework.stereotype.Service;
 
@@ -11,9 +11,9 @@ import java.util.List;
 @Service
 public class MenuItemserviceimpl implements MenuItemservice {
 
-    private final MenuItemrepositrory repository;
+    private final MenuItemrepository repository;
 
-    public MenuItemserviceimpl(MenuItemrepositrory repository) {
+    public MenuItemserviceimpl(MenuItemrepository repository) {
         this.repository = repository;
     }
 

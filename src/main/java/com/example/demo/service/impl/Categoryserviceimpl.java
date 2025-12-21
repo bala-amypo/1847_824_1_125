@@ -2,7 +2,7 @@
 package com.example.demo.service.impl;
 
 import com.example.demo.entity.Categoryentity;
-import com.example.demo.repository.CategoryResposiory;
+import com.example.demo.repository.CategoryRespository;
 import com.example.demo.service.Categoryservice;
 import org.springframework.stereotype.Service;
 
@@ -11,9 +11,9 @@ import java.util.List;
 @Service
 public class Categoryserviceimpl implements Categoryservice {
 
-    private final CategoryResposiory repository;
+    private final CategoryRespository repository;
 
-    public Categoryserviceimpl(CategoryResposiory repository) {
+    public Categoryserviceimpl(CategoryRespository repository) {
         this.repository = repository;
     }
 
