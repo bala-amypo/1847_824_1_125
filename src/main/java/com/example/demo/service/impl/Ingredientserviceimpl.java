@@ -1,7 +1,8 @@
+
 package com.example.demo.service.impl;
 
-import com.example.demo.entity.Ingrediententity;
-import com.example.demo.repository.IngredientRepository;
+import com.example.demo.entity.Ingredientenity;
+import com.example.demo.repository.IngredientRespository;
 import com.example.demo.service.Ingredientservice;
 import org.springframework.stereotype.Service;
 
@@ -10,39 +11,37 @@ import java.util.List;
 @Service
 public class Ingredientserviceimpl implements Ingredientservice {
 
-    private final IngredientRepository ingredientRepository;
+    private final IngredientRespository repository;
 
-    public Ingredientserviceimpl(IngredientRepository ingredientRepository) {
-        this.ingredientRepository = ingredientRepository;
+    public Ingredientserviceimpl(IngredientRespository repository) {
+        this.repository = repository;
     }
 
     @Override
-    public Ingrediententity createIngredient(Ingrediententity ingredient) {
-        return ingredientRepository.save(ingredient);
+    public Ingredientenity create(Ingrediententity ingredient) {
+        return repository.save(ingredient);
     }
 
     @Override
-    public List<Ingrediententity> getAllIngredients() {
-        return ingredientRepository.findAll();
+    public List<Ingrediententity> getAll() {
+        return repository.findAll();
     }
 
     @Override
-    public Ingrediententity getIngredientById(Long id) {
-        return ingredientRepository.findById(id).orElseThrow();
+    public Ingredientenity getById(Long id) {
+        return repository.findById(id).orElseThrow();
     }
 
     @Override
-    public Ingrediententity updateIngredient(Long id, Ingrediententity ingredient) {
-        Ingrediententity existing = getIngredientById(id);
-        existing.setName(ingredient.getName());
-        existing.setPricePerUnit(ingredient.getPricePerUnit());
-        return ingredientRepository.save(existing);
+    public Ingredientenity update(Long id, Ingredientenity ingredient) {
+        ingredient.setId(id);
+        return repository.save(ingredient);
     }
 
     @Override
-    public void deactivateIngredient(Long id) {
-        Ingrediententity ingredient = getIngredientById(id);
+    public void deactivate(Long id) {
+        Ingredientenity ingredient = getById(id);
         ingredient.setActive(false);
-        ingredientRepository.save(ingredient);
+        repository.save(ingredient);
     }
 }
