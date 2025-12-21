@@ -1,14 +1,14 @@
 
 package com.example.demo.controller;
 
-import com.example.demo.entity.Ingredientenity;
+import com.example.demo.entity.Ingrediententity;
 import com.example.demo.service.Ingredientservice;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/ingredients")
+@RequestMapping("/ingredients")
 public class Ingredientcontroller {
 
     private final Ingredientservice service;
@@ -18,7 +18,7 @@ public class Ingredientcontroller {
     }
 
     @PostMapping
-    public Ingredientenity create(@RequestBody Ingredientenity ingredient) {
+    public Ingrediententity create(@RequestBody Ingrediententity ingredient) {
         return service.create(ingredient);
     }
 
@@ -28,18 +28,18 @@ public class Ingredientcontroller {
     }
 
     @GetMapping("/{id}")
-    public Ingredientenity getById(@PathVariable Long id) {
+    public Ingrediententity getById(@PathVariable Long id) {
         return service.getById(id);
     }
 
     @PutMapping("/{id}")
-    public Ingredientenity update(
+    public Ingrediententity update(
             @PathVariable Long id,
-            @RequestBody Ingredientenity ingredient) {
+            @RequestBody Ingrediententity ingredient) {
         return service.update(id, ingredient);
     }
 
-    @PutMapping("/{id}/deactivate")
+    @DeleteMapping("/{id}")
     public void deactivate(@PathVariable Long id) {
         service.deactivate(id);
     }
