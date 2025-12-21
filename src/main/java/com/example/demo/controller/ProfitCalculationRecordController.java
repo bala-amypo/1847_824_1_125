@@ -1,43 +1,30 @@
-
-
 package com.example.demo.controller;
 
-import com.example.demo.entity.ProfitCalculationRecordentity;
-import com.example.demo.service.ProfitCalculationRecordservice;
+import com.example.demo.entity.ProfitCalculationRecordEntity;
+import com.example.demo.service.ProfitCalculationRecordService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/profit")
-public class ProfitCalculationRecordcontroller {
+@RequestMapping("/profits")
+public class ProfitCalculationRecordController {
 
-    private final ProfitCalculationRecordsevice service;
+    private final ProfitCalculationRecordService service;
 
-    public ProfitCalculationRecordcontroller(
-            ProfitCalculationRecordsevice service) {
+    public ProfitCalculationRecordController(
+            ProfitCalculationRecordService service) {
         this.service = service;
     }
 
-    @PostMapping("/calculate/{menuItemId}")
-    public ProfitCalculationRecordentity calculate(
-            @PathVariable Long menuItemId) {
-        return service.calculate(menuItemId);
-    }
-
-    @GetMapping("/menu/{menuItemId}")
-    public List<ProfitCalculationRecordentity> getHistory(
-            @PathVariable Long menuItemId) {
-        return service.getByMenuItem(menuItemId);
+    @PostMapping
+    public ProfitCalculationRecordEntity save(
+            @RequestBody ProfitCalculationRecordEntity record) {
+        return service.save(record);
     }
 
     @GetMapping
-    public List<ProfitCalculationRecordentity> getAll() {
+    public List<ProfitCalculationRecordEntity> getAll() {
         return service.getAll();
     }
 }
-
-
-
-
-

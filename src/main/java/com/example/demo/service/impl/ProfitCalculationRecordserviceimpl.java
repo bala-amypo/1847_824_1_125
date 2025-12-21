@@ -1,73 +1,35 @@
-
-
 package com.example.demo.service.impl;
 
-import com.example.demo.entity.ProfitCalculationRecordentity;
-import com.example.demo.repository.MenuItemrepository;
+import com.example.demo.entity.ProfitCalculationRecordEntity;
 import com.example.demo.repository.ProfitCalculationRecordRepository;
-import com.example.demo.repository.RecipeIngredientRepository;
-import com.example.demo.service.ProfitCalculationRecordsevice;
+import com.example.demo.service.ProfitCalculationRecordService;
 import org.springframework.stereotype.Service;
 
-import java.math.BigDecimal;
 import java.util.List;
 
 @Service
-public class ProfitCalculationRecordserviceimpl
-        implements ProfitCalculationRecordsevice {
+public class ProfitCalculationRecordServiceImpl
+        implements ProfitCalculationRecordService {
 
-    private final MenuItemrepository menuRepo;
-    private final RecipeIngredientRepository recipeRepo;
-    private final ProfitCalculationRecordRepostiory profitRepo;
+    private final ProfitCalculationRecordRepository repository;
 
-    public ProfitCalculationRecordserviceimpl(
-            MenuItemrepository menuRepo,
-            RecipeIngredientRepository recipeRepo,
-            ProfitCalculationRecordRepostiory profitRepo) {
-
-        this.menuRepo = menuRepo;
-        this.recipeRepo = recipeRepo;
-        this.profitRepo = profitRepo;
+    public ProfitCalculationRecordServiceImpl(
+            ProfitCalculationRecordRepository repository) {
+        this.repository = repository;
     }
 
     @Override
-    public ProfitCalculationRecordentity calculate(Long menuItemId) {
+    public ProfitCalculationRecordEntity save(
+            ProfitCalculationRecordEntity record) {
 
-        var menuItem = menuRepo.findById(menuItemId).orElseThrow();
-        var recipes = recipeRepo.findByMenuItemId(menuItemId);
-
-        BigDecimal totalCost = BigDecimal.ZERO;
-
-        for (var r : recipes) {
-            BigDecimal cost = r.getIngredient()
-                    .getCostPerUnit()
-                    .multiply(BigDecimal.valueOf(r.getQuantityRequired()));
-            totalCost = totalCost.add(cost);
-        }
-
-        BigDecimal profit =
-                menuItem.getSellingPrice().subtract(totalCost);
-
-        ProfitCalculationRecordentity record =
-                new ProfitCalculationRecordentity();
-
-        record.setMenuItem(menuItem);
-        record.setTotalCost(totalCost);
-        record.setProfitMargin(profit);
-
-        return profitRepo.save(record);
+        record.setProfit(
+                record.getSellingPrice() - record.getCostPrice()
+        );
+        return repository.save(record);
     }
 
     @Override
-    public List<ProfitCalculationRecordentity> getAll() {
-        return profitRepo.findAll();
-    }
-
-    @Override
-    public List<ProfitCalculationRecordentity> getByMenuItem(Long menuItemId) {
-        return profitRepo.findAll()
-                .stream()
-                .filter(r -> r.getMenuItem().getId().equals(menuItemId))
-                .toList();
+    public List<ProfitCalculationRecordEntity> getAll() {
+        return repository.findAll();
     }
 }

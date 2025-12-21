@@ -1,16 +1,11 @@
-
-
 package com.example.demo.service;
 
-import com.example.demo.entity.ProfitCalculationRecordentity;
-
+import com.example.demo.entity.ProfitCalculationRecordEntity;
 import java.util.List;
 
-public interface ProfitCalculationRecordsevice {
+public interface ProfitCalculationRecordService {
 
-    ProfitCalculationRecordentity saveRecord(ProfitCalculationRecordentity record);
+    ProfitCalculationRecordEntity save(ProfitCalculationRecordEntity record);
 
-    List<ProfitCalculationRecordentity> getRecordsByMenuItem(Long menuItemId);
-
-    List<ProfitCalculationRecordentity> getAllRecords();
+    List<ProfitCalculationRecordEntity> getAll();
 }
