@@ -1,19 +1,20 @@
 
 package com.example.demo.service;
 
-import com.example.demo.entity.Ingredientenity;
+import com.example.demo.entity.Ingrediententity;
 
 import java.util.List;
 
 public interface Ingredientservice {
 
-    Ingredientenity createIngredient(Ingrediententity ingredient);
+    Ingrediententity create(Ingrediententity ingredient);
 
-    Ingredientenity updateIngredient(Long id, Ingredientenity ingredient);
+    Ingrediententity update(Long id, Ingrediententity ingredient);
 
-    Ingredientenity getIngredientById(Long id);
+    Ingrediententity getById(Long id);
 
-    List<Ingrediententity> getAllIngredients();
+    List<Ingrediententity> getAll();
 
-    void deleteIngredient(Long id);
+    void deactivate(Long id);
 }
+
