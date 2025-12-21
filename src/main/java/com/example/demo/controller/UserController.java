@@ -1,29 +1,28 @@
-
-
-
 package com.example.demo.controller;
 
-import com.example.demo.entity.Userentity;
-import com.example.demo.service.Userservice;
+import com.example.demo.entity.UserEntity;
+import com.example.demo.service.UserService;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
-@RequestMapping("/api/users")
-public class Usercontroller {
+@RequestMapping("/users")
+public class UserController {
 
-    private final Userservice service;
+    private final UserService service;
 
-    public Usercontroller(Userservice service) {
+    public UserController(UserService service) {
         this.service = service;
     }
 
-    @PostMapping("/register")
-    public Userentity register(@RequestBody Userentity user) {
-        return service.register(user);
+    @PostMapping
+    public UserEntity create(@RequestBody UserEntity user) {
+        return service.create(user);
     }
 
-    @GetMapping("/{id}")
-    public Userentity getById(@PathVariable Long id) {
-        return service.getById(id);
+    @GetMapping
+    public List<UserEntity> getAll() {
+        return service.getAll();
     }
 }

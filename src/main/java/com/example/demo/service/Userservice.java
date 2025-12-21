@@ -1,10 +1,11 @@
 package com.example.demo.service;
 
 import com.example.demo.entity.UserEntity;
+import java.util.List;
 
 public interface UserService {
 
-    UserEntity register(UserEntity user);
+    UserEntity create(UserEntity user);
 
-    UserEntity login(String email, String password);
+    List<UserEntity> getAll();
 }
