@@ -60,10 +60,12 @@ public class RecipeIngrediententity {
     }
     public void setIngredient(Ingrediententity ingredient){
         this.ingredient = ingredient;
-        }
+    }
 
     public Double getQuantityRequired(){
         return quantityRequired;
     }
-    public void setQuantityRequired(Double quantityRequired) { this.quantityRequired = quantityRequired; }
+    public void setQuantityRequired(Double quantityRequired){
+        this.quantityRequired = quantityRequired; 
+    }
 }
