@@ -4,7 +4,7 @@ package com.example.demo.service.impl;
 
 import com.example.demo.entity.ProfitCalculationRecordentity;
 import com.example.demo.repository.MenuItemrepository;
-import com.example.demo.repository.ProfitCalculationRecordRepostiory;
+import com.example.demo.repository.ProfitCalculationRecordRepository;
 import com.example.demo.repository.RecipeIngredientRepository;
 import com.example.demo.service.ProfitCalculationRecordsevice;
 import org.springframework.stereotype.Service;
@@ -16,12 +16,12 @@ import java.util.List;
 public class ProfitCalculationRecordserviceimpl
         implements ProfitCalculationRecordsevice {
 
-    private final MenuItemrepositrory menuRepo;
+    private final MenuItemrepository menuRepo;
     private final RecipeIngredientRepository recipeRepo;
     private final ProfitCalculationRecordRepostiory profitRepo;
 
     public ProfitCalculationRecordserviceimpl(
-            MenuItemrepositrory menuRepo,
+            MenuItemrepository menuRepo,
             RecipeIngredientRepository recipeRepo,
             ProfitCalculationRecordRepostiory profitRepo) {
 
