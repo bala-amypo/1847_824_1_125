@@ -1,13 +1,16 @@
+
+
 package com.example.demo.service;
-import jakarta.persistence.service;
+
 import com.example.demo.entity.RecipeIngrediententity;
 
-@Service
-public  interface RecipeIngredientservice{
-    public RecipeIngredient addIngredientToRecipe(Long menuItemID,Long ingredientId,Double quantity);
-    public RecipeIngredient updataRecipeIngredient(Long id,Double quantity);
-    public RecipeIngredient getIngredientFromRecipe(Long menuItemId);
-    public RecipeIngredient removeIngredientFromRecipe(Long id);
-    public RecipeIngredient getToatlQuantityOfIngredient(Long ingredientId);
+import java.util.List;
 
+public interface RecipeIngredientservice {
+
+    RecipeIngrediententity addIngredientToRecipe(RecipeIngrediententity recipeIngredient);
+
+    List<RecipeIngrediententity> getIngredientsByMenuItem(Long menuItemId);
+
+    void removeIngredient(Long id);
 }

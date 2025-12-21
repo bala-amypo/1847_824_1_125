@@ -1,10 +1,18 @@
+
+
 package com.example.demo.service;
-import jakarta.persistence.service;
+
 import com.example.demo.entity.Userentity;
 
-@Service
-public interface Userservice{
-    public User register(RegisterRequest req);
-    
-    public User login(AuthRequest req);
+import java.util.List;
+
+public interface Userservice {
+
+    Userentity createUser(Userentity user);
+
+    Userentity getUserById(Long id);
+
+    List<Userentity> getAllUsers();
+
+    void deleteUser(Long id);
 }

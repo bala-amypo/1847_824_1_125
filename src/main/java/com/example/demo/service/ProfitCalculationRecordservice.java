@@ -1,12 +1,16 @@
+
+
 package com.example.demo.service;
-import jakarta.persistence.service;
+
 import com.example.demo.entity.ProfitCalculationRecordentity;
 
-@Service
-public interface ProfitCalculationRecordservice{
-    public ProfitCalculation calculateProfit(Long menuItemId);
-    public ProfitCalculation updateRecipeIngredient(Long id,Double quantity);
-    public ProfitCalculation getIngredientFromRecipe(Long menuItemId);
-    public ProfitCalculation removeIngredientFromRecipe(Long id);
-    public ProfitCalculation getTotalQuantityOfIngredient(Long ingredientId);
+import java.util.List;
+
+public interface ProfitCalculationRecordsevice {
+
+    ProfitCalculationRecordentity saveRecord(ProfitCalculationRecordentity record);
+
+    List<ProfitCalculationRecordentity> getRecordsByMenuItem(Long menuItemId);
+
+    List<ProfitCalculationRecordentity> getAllRecords();
 }
