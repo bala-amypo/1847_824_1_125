@@ -1,6 +1,3 @@
-📄 1. Entity
-
-File name: IngredientEntity.java
 
 package com.example.demo.entity;
 
@@ -68,40 +65,4 @@ public class IngredientEntity {
     }
 }
 
-📄 2. Repository
-
-File name: IngredientRepository.java
-
-package com.example.demo.repository;
-
-import com.example.demo.entity.IngredientEntity;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
-
-@Repository
-public interface IngredientRepository
-        extends JpaRepository<IngredientEntity, Long> {
-}
-
-📄 3. Service Interface
-
-File name: IngredientService.java
-
-package com.example.demo.service;
-
-import com.example.demo.entity.IngredientEntity;
-import java.util.List;
-
-public interface IngredientService {
-
-    IngredientEntity createIngredient(IngredientEntity ingredient);
-
-    List<IngredientEntity> getAllIngredients();
-
-    IngredientEntity getIngredientById(Long id);
-
-    IngredientEntity updateIngredient(Long id, IngredientEntity ingredient);
-
-    void deactivateIngredient(Long id);
-}
 
