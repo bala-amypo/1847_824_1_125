@@ -1,5 +1,3 @@
-
-
 package com.example.demo.controller;
 
 import com.example.demo.entity.MenuItementity;
@@ -22,13 +20,11 @@ public class MenuItemcontroller {
     public MenuItementity create(@RequestBody MenuItementity item) {
         return service.create(item);
     }
-
     @GetMapping
     public List<MenuItementity> getAll() {
         return service.getAll();
     }
-
-    @GetMapping("/{id}")
+   @GetMapping("/{id}")
     public MenuItementity getById(@PathVariable Long id) {
         return service.getById(id);
     }

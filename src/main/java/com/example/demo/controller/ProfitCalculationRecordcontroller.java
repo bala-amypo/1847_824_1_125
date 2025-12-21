@@ -3,7 +3,7 @@
 package com.example.demo.controller;
 
 import com.example.demo.entity.ProfitCalculationRecordentity;
-import com.example.demo.service.ProfitCalculationRecordsevice;
+import com.example.demo.service.ProfitCalculationRecordservice;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
