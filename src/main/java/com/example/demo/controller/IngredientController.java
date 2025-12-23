@@ -2,11 +2,7 @@
 
 package com.example.demo.controller;
 
-// import com.example.demo.entity.IngredientEntity;
-// import com.example.demo.service.IngredientService;
-// import org.springframework.web.bind.annotation.*;
 
-// import java.util.List;
 
 import com.example.demo.entity.IngredientEntity;
 import com.example.demo.service.IngredientService;

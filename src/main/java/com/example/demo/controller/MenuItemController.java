@@ -1,10 +1,6 @@
 package com.example.demo.controller;
 
-// // import com.example.demo.entity.MenuItemEntity;
-// import com.example.demo.service.MenuItemService;
-// import org.springframework.web.bind.annotation.*;
 
-// import java.util.List;
 
 import com.example.demo.entity.MenuItemEntity;
 import com.example.demo.service.MenuItemService;

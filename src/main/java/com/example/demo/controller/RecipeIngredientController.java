@@ -1,10 +1,6 @@
 package com.example.demo.controller;
 
-// import com.example.demo.entity.RecipeIngredientEntity;
-// import com.example.demo.service.RecipeIngredientService;
-// import org.springframework.web.bind.annotation.*;
 
-// import java.util.List;
 import com.example.demo.entity.RecipeIngredientEntity;
 import com.example.demo.service.RecipeIngredientService;
 

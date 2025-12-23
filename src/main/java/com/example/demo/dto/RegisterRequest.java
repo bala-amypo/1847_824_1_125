@@ -1,6 +1,6 @@
 // package com.example.demo.dto;
 
-// public class RegisterRequest {
+// public class RegisterRequest //{
 
 //     private String fullName;
 //     private String email;
