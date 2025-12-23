@@ -1,10 +1,6 @@
 package com.example.demo.controller;
 
-// import com.example.demo.dto.AuthRequest;
-// import com.example.demo.dto.RegisterRequest;
-// import com.example.demo.entity.UserEntity;
-// import com.example.demo.service.UserService;
-// import org.springframework.web.bind.annotation.*;
+
 
 import com.example.demo.dto.AuthRequest;
 import com.example.demo.dto.RegisterRequest;
