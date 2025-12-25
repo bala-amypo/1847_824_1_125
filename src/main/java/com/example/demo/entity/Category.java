@@ -1,26 +1,27 @@
 package com.example.demo.entity;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "menu_items")
-public class MenuItemEntity {
+@Table(name = "categories")
+public class Category {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String name;
-    private Double price;
     private Boolean active;
 
-    public MenuItemEntity() {
+    public Category() {
     }
 
-    public MenuItemEntity(Long id, String name, Double price, Boolean active) {
+    public Category(Long id, String name, Boolean active) {
         this.id = id;
         this.name = name;
-        this.price = price;
         this.active = active;
     }
 
@@ -30,10 +31,6 @@ public class MenuItemEntity {
 
     public String getName() {
         return name;
-    }
-
-    public Double getPrice() {
-        return price;
     }
 
     public Boolean getActive() {
@@ -46,10 +43,6 @@ public class MenuItemEntity {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public void setPrice(Double price) {
-        this.price = price;
     }
 
     public void setActive(Boolean active) {

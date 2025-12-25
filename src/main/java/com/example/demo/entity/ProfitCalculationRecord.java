@@ -15,10 +15,10 @@ public class ProfitCalculationRecordEntity {
     private Double sellingPrice;
     private Double profit;
 
-    public ProfitCalculationRecordEntity() {
+    public ProfitCalculationRecord() {
     }
 
-    public ProfitCalculationRecordEntity(Long id, Long menuItemId, Double costPrice,
+    public ProfitCalculationRecord(Long id, Long menuItemId, Double costPrice,
                                          Double sellingPrice, Double profit) {
         this.id = id;
         this.menuItemId = menuItemId;

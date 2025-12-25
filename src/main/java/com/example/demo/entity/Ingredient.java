@@ -10,7 +10,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "ingredients")
-public class IngredientEntity {
+public class Ingredient {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,10 +23,10 @@ public class IngredientEntity {
 
     private Boolean active = true;
 
-    public IngredientEntity() {
+    public Ingredient() {
     }
 
-    public IngredientEntity(String name, Double cost) {
+    public Ingredient(String name, Double cost) {
         this.name = name;
         this.cost = cost;
         this.active = true;
