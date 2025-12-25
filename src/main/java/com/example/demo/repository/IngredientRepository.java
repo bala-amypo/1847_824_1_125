@@ -1,10 +1,10 @@
 
 package com.example.demo.repository;
 
-import com.example.demo.entity.IngredientEntity;
+import com.example.demo.entity.Ingredient;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface IngredientRepository
-        extends JpaRepository<IngredientEntity, Long> {
+        extends JpaRepository<Ingredient, Long> {
 }
 

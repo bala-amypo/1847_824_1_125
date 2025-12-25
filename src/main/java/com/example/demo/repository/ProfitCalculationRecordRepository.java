@@ -10,11 +10,11 @@
 
 package com.example.demo.repository;
 
-import com.example.demo.entity.ProfitCalculationRecordEntity;
+import com.example.demo.entity.ProfitCalculationRecord;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface ProfitCalculationRecordRepository
-        extends JpaRepository<ProfitCalculationRecordEntity, Long> {
+        extends JpaRepository<ProfitCalculationRecord, Long> {
 
-    ProfitCalculationRecordEntity findByMenuItemId(Long menuItemId);
+    ProfitCalculationRecord findByMenuItemId(Long menuItemId);
 }
