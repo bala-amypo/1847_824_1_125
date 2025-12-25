@@ -36,5 +36,5 @@ public interface UserRepository
 
     boolean existsByEmail(String email);
 
-    Optional<UserEntity> findByEmail(String email);
+    Optional<User> findByEmail(String email);
 }
