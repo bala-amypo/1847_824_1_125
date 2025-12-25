@@ -1,8 +1,8 @@
 package com.example.demo.controller;
 
 
-import com.example.demo.entity.ProfitCalculationRecordEntity;
-import com.example.demo.service.ProfitCalculationRecordService;
+import com.example.demo.entity.ProfitCalculationRecord;
+import com.example.demo.service.ProfitCalculationService;
 
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,21 +18,21 @@ import java.util.List;
 @RequestMapping("/profits")
 public class ProfitCalculationRecordController {
 
-    private final ProfitCalculationRecordService service;
+    private final ProfitCalculationService service;
 
     public ProfitCalculationRecordController(
-            ProfitCalculationRecordService service) {
+            ProfitCalculationService service) {
         this.service = service;
     }
 
     @PostMapping
-    public ProfitCalculationRecordEntity save(
-            @RequestBody ProfitCalculationRecordEntity record) {
+    public ProfitCalculationRecord save(
+            @RequestBody ProfitCalculationRecord record) {
         return service.save(record);
     }
 
     @GetMapping
-    public List<ProfitCalculationRecordEntity> getAll() {
+    public List<ProfitCalculationRecordy> getAll() {
         return service.getAll();
     }
 }
