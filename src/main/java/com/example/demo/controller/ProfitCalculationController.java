@@ -16,23 +16,23 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/profits")
-public class ProfitCalculationRecordController {
+public class ProfitCalculationController {
 
     private final ProfitCalculationService service;
 
-    public ProfitCalculationRecordController(
+    public ProfitCalculationController(
             ProfitCalculationService service) {
         this.service = service;
     }
 
     @PostMapping
-    public ProfitCalculationRecord save(
-            @RequestBody ProfitCalculationRecord record) {
+    public ProfitCalculation save(
+            @RequestBody ProfitCalculation record) {
         return service.save(record);
     }
 
     @GetMapping
-    public List<ProfitCalculationRecordy> getAll() {
+    public List<ProfitCalculationRecord> getAll() {
         return service.getAll();
     }
 }

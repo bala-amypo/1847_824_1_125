@@ -13,7 +13,7 @@ public class ProfitCalculationServiceImpl
 
     private final ProfitCalculationRecordRepository repository;
 
-    public ProfitCalculationRecordServiceImpl(
+    public ProfitCalculationServiceImpl(
             ProfitCalculationRecordRepository repository) {
         this.repository = repository;
     }
