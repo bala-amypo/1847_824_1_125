@@ -1,17 +1,17 @@
 package com.example.demo.service;
 
-import com.example.demo.entity.MenuItemEntity;
+import com.example.demo.entity.MenuItem;
 import java.util.List;
 
 public interface MenuItemService {
 
-    MenuItemEntity create(MenuItemEntity item);
+    MenuItem create(MenuItem item);
 
-    List<MenuItemEntity> getAll();
+    List<MenuItem> getAll();
 
-    MenuItemEntity getById(Long id);
+    MenuItem getById(Long id);
 
-    MenuItemEntity update(Long id, MenuItemEntity item);
+    MenuItem update(Long id, MenuItemEntity item);
 
     void deactivate(Long id);
 }
