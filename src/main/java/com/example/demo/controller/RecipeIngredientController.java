@@ -1,7 +1,7 @@
 package com.example.demo.controller;
 
 
-import com.example.demo.entity.RecipeIngredientEntity;
+import com.example.demo.entity.RecipeIngredient;
 import com.example.demo.service.RecipeIngredientService;
 
 import org.springframework.web.bind.annotation.RestController;
@@ -25,12 +25,12 @@ public class RecipeIngredientController {
     }
 
     @PostMapping
-    public RecipeIngredientEntity add(@RequestBody RecipeIngredientEntity ingredient) {
+    public RecipeIngredient add(@RequestBody RecipeIngredient ingredient) {
         return service.add(ingredient);
     }
 
     @GetMapping("/{menuItemId}")
-    public List<RecipeIngredientEntity> getByMenuItem(@PathVariable Long menuItemId) {
+    public List<RecipeIngredient> getByMenuItem(@PathVariable Long menuItemId) {
         return service.getByMenuItem(menuItemId);
     }
 }

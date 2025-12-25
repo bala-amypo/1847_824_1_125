@@ -2,7 +2,7 @@ package com.example.demo.controller;
 
 
 
-import com.example.demo.entity.MenuItemEntity;
+import com.example.demo.entity.MenuItem;
 import com.example.demo.service.MenuItemService;
 
 import org.springframework.web.bind.annotation.RestController;
@@ -26,12 +26,12 @@ public class MenuItemController {
     }
 
     @PostMapping
-    public MenuItemEntity create(@RequestBody MenuItemEntity item) {
+    public MenuItem create(@RequestBody MenuItem item) {
         return service.create(item);
     }
 
     @GetMapping
-    public List<MenuItemEntity> getAll() {
+    public List<MenuItem> getAll() {
         return service.getAll();
     }
 }
