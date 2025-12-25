@@ -4,7 +4,7 @@ package com.example.demo.controller;
 
 import com.example.demo.dto.AuthRequest;
 import com.example.demo.dto.RegisterRequest;
-import com.example.demo.entity.UserEntity;
+import com.example.demo.entity.User;
 import com.example.demo.service.UserService;
 
 import org.springframework.web.bind.annotation.RestController;
@@ -24,12 +24,12 @@ public class UserController {
     }
 
     @PostMapping("/register")
-    public UserEntity register(@RequestBody RegisterRequest request) {
+    public User register(@RequestBody RegisterRequest request) {
         return service.register(request);
     }
 
     @PostMapping("/login")
-    public UserEntity login(@RequestBody AuthRequest request) {
+    public User login(@RequestBody AuthRequest request) {
         return service.login(request);
     }
 }

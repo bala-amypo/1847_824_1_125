@@ -54,7 +54,7 @@ package com.example.demo.service.impl;
 
 import com.example.demo.dto.AuthRequest;
 import com.example.demo.dto.RegisterRequest;
-import com.example.demo.entity.UserEntity;
+import com.example.demo.entity.User;
 import com.example.demo.exception.BadRequestException;
 import com.example.demo.exception.ResourceNotFoundException;
 import com.example.demo.repository.UserRepository;
@@ -76,13 +76,13 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public UserEntity register(RegisterRequest request) {
+    public User register(RegisterRequest request) {
 
         if (userRepository.existsByEmail(request.getEmail())) {
             throw new BadRequestException("Email already in use");
         }
 
-        UserEntity user = new UserEntity();
+        User user = new User();
         user.setEmail(request.getEmail());
         user.setPassword(passwordEncoder.encode(request.getPassword()));
         user.setFullName(request.getFullName());
@@ -94,7 +94,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public UserEntity login(AuthRequest request) {
+    public User login(AuthRequest request) {
 
         return userRepository.findByEmail(request.getEmail())
                 .orElseThrow(() ->

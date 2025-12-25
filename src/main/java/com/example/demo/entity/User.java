@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
         @UniqueConstraint(columnNames = "email")
     }
 )
-public class UserEntity {
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,11 +30,11 @@ public class UserEntity {
     @Column(nullable = false)
     private LocalDateTime createdAt;
 
-    public UserEntity() {
+    public User() {
         this.createdAt = LocalDateTime.now();
     }
 
-    public UserEntity(Long id, String fullName, String email,
+    public User(Long id, String fullName, String email,
                       String password, String role,
                       LocalDateTime createdAt) {
         this.id = id;
