@@ -1,6 +1,6 @@
 package com.example.demo.service.impl;
 
-import com.example.demo.entity.RecipeIngredientEntity;
+import com.example.demo.entity.RecipeIngredient;
 import com.example.demo.repository.RecipeIngredientRepository;
 import com.example.demo.service.RecipeIngredientService;
 import org.springframework.stereotype.Service;
@@ -17,12 +17,12 @@ public class RecipeIngredientServiceImpl implements RecipeIngredientService {
     }
 
     @Override
-    public RecipeIngredientEntity add(RecipeIngredientEntity ingredient) {
+    public RecipeIngredient add(RecipeIngredient ingredient) {
         return repository.save(ingredient);
     }
 
     @Override
-    public List<RecipeIngredientEntity> getByMenuItem(Long menuItemId) {
+    public List<RecipeIngredient> getByMenuItem(Long menuItemId) {
         return repository.findByMenuItemId(menuItemId);
     }
 
