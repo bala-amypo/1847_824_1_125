@@ -4,7 +4,7 @@ package com.example.demo.controller;
 
 
 
-import com.example.demo.entity.IngredientEntity;
+import com.example.demo.entity.Ingredient;
 import com.example.demo.service.IngredientService;
 
 import org.springframework.web.bind.annotation.RestController;
@@ -29,24 +29,24 @@ public class IngredientController {
     }
 
     @PostMapping
-    public IngredientEntity create(@RequestBody IngredientEntity ingredient) {
+    public Ingredient create(@RequestBody Ingredient ingredient) {
         return ingredientService.createIngredient(ingredient);
     }
 
     @GetMapping
-    public List<IngredientEntity> getAll() {
+    public List<Ingredient> getAll() {
         return ingredientService.getAllIngredients();
     }
 
     @GetMapping("/{id}")
-    public IngredientEntity getById(@PathVariable Long id) {
+    public Ingredient getById(@PathVariable Long id) {
         return ingredientService.getIngredientById(id);
     }
 
     @PutMapping("/{id}")
-    public IngredientEntity update(
+    public Ingredient update(
             @PathVariable Long id,
-            @RequestBody IngredientEntity ingredient) {
+            @RequestBody Ingredient ingredient) {
         return ingredientService.updateIngredient(id, ingredient);
     }
 

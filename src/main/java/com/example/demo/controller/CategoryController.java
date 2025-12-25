@@ -2,7 +2,7 @@ package com.example.demo.controller;
 
 
 
-import com.example.demo.entity.CategoryEntity;
+import com.example.demo.entity.Category;
 import com.example.demo.service.CategoryService;
 
 import org.springframework.web.bind.annotation.RestController;
@@ -25,12 +25,12 @@ public class CategoryController {
     }
 
     @PostMapping
-    public CategoryEntity create(@RequestBody CategoryEntity category) {
+    public Category create(@RequestBody Category category) {
         return service.create(category);
     }
 
     @GetMapping
-    public List<CategoryEntity> getAll() {
+    public List<Category> getAll() {
         return service.getAll();
     }
 }
