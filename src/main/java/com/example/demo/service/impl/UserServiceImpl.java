@@ -52,8 +52,11 @@
 
 package com.example.demo.service.impl;
 
+import com.example.demo.dto.AuthRequest;
 import com.example.demo.dto.RegisterRequest;
+import com.example.demo.entity.UserEntity;
 import com.example.demo.exception.BadRequestException;
+import com.example.demo.exception.ResourceNotFoundException;
 import com.example.demo.repository.UserRepository;
 import com.example.demo.service.UserService;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -65,7 +68,7 @@ public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
 
-    // ⚠️ EXACT ORDER
+    // ⚠️ EXACT ORDER (TEST REQUIREMENT)
     public UserServiceImpl(UserRepository userRepository,
                            PasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
@@ -73,12 +76,26 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void register(RegisterRequest request) {
+    public UserEntity register(RegisterRequest request) {
 
         if (userRepository.existsByEmail(request.getEmail())) {
             throw new BadRequestException("Email already in use");
         }
 
-        // minimal logic (tests don't check DB save deeply)
+        UserEntity user = new UserEntity();
+        user.setEmail(request.getEmail());
+        user.setPassword(passwordEncoder.encode(request.getPassword()));
+        user.setFullName(request.getFullName());
+        user.setRole(request.getRole());
+
+        return userRepository.save(user);
+    }
+
+    @Override
+    public UserEntity login(AuthRequest request) {
+
+        return userRepository.findByEmail(request.getEmail())
+                .orElseThrow(() ->
+                        new ResourceNotFoundException("User not found"));
     }
 }
