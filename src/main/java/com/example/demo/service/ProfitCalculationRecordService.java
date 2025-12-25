@@ -1,11 +1,11 @@
 package com.example.demo.service;
 
-import com.example.demo.entity.ProfitCalculationRecordEntity;
+import com.example.demo.entity.ProfitCalculationRecord;
 import java.util.List;
 
 public interface ProfitCalculationRecordService {
 
-    ProfitCalculationRecordEntity save(ProfitCalculationRecordEntity record);
+    ProfitCalculationRecord save(ProfitCalculationRecord record);
 
-    List<ProfitCalculationRecordEntity> getAll();
+    List<ProfitCalculationRecord> getAll();
 }

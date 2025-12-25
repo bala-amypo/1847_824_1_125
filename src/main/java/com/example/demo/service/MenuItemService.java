@@ -11,7 +11,7 @@ public interface MenuItemService {
 
     MenuItem getById(Long id);
 
-    MenuItem update(Long id, MenuItemEntity item);
+    MenuItem update(Long id, MenuItem item);
 
     void deactivate(Long id);
 }

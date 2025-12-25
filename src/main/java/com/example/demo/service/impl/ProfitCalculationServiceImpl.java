@@ -1,15 +1,15 @@
 package com.example.demo.service.impl;
 
-import com.example.demo.entity.ProfitCalculationRecordEntity;
+import com.example.demo.entity.ProfitCalculationRecord;
 import com.example.demo.repository.ProfitCalculationRecordRepository;
-import com.example.demo.service.ProfitCalculationRecordService;
+import com.example.demo.service.ProfitCalculationService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class ProfitCalculationRecordServiceImpl
-        implements ProfitCalculationRecordService {
+public class ProfitCalculationServiceImpl
+        implements ProfitCalculationService {
 
     private final ProfitCalculationRecordRepository repository;
 
@@ -19,8 +19,8 @@ public class ProfitCalculationRecordServiceImpl
     }
 
     @Override
-    public ProfitCalculationRecordEntity save(
-            ProfitCalculationRecordEntity record) {
+    public ProfitCalculationRecord save(
+            ProfitCalculationRecord record) {
 
         record.setProfit(
                 record.getSellingPrice() - record.getCostPrice()
@@ -29,7 +29,7 @@ public class ProfitCalculationRecordServiceImpl
     }
 
     @Override
-    public List<ProfitCalculationRecordEntity> getAll() {
+    public List<ProfitCalculationRecord> getAll() {
         return repository.findAll();
     }
 }
