@@ -1,6 +1,6 @@
 package com.example.demo.service.impl;
 
-import com.example.demo.entity.CategoryEntity;
+import com.example.demo.entity.Category;
 import com.example.demo.repository.CategoryRepository;
 import com.example.demo.service.CategoryService;
 import org.springframework.stereotype.Service;
@@ -17,31 +17,31 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
-    public CategoryEntity create(CategoryEntity category) {
+    public Category create(Category category) {
         category.setActive(true);
         return repository.save(category);
     }
 
     @Override
-    public List<CategoryEntity> getAll() {
+    public List<Category> getAll() {
         return repository.findAll();
     }
 
     @Override
-    public CategoryEntity getById(Long id) {
+    public Category getById(Long id) {
         return repository.findById(id).orElseThrow();
     }
 
     @Override
-    public CategoryEntity update(Long id, CategoryEntity category) {
-        CategoryEntity existing = getById(id);
+    public Category update(Long id, Category category) {
+        Category existing = getById(id);
         existing.setName(category.getName());
         return repository.save(existing);
     }
 
     @Override
     public void deactivate(Long id) {
-        CategoryEntity existing = getById(id);
+        Category existing = getById(id);
         existing.setActive(false);
         repository.save(existing);
     }
