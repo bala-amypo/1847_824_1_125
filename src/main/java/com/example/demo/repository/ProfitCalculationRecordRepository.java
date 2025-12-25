@@ -1,8 +1,10 @@
-package com.example.demo.repository;
+// package com.example.demo.repository;
 
-import com.example.demo.entity.ProfitCalculationRecordEntity;
-import org.springframework.data.jpa.repository.JpaRepository;
+// import com.example.demo.entity.ProfitCalculationRecordEntity;
+// import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface ProfitCalculationRecordRepository
-        extends JpaRepository<ProfitCalculationRecordEntity, Long> {
-}
+// public interface ProfitCalculationRecordRepository
+//         extends JpaRepository<ProfitCalculationRecordEntity, Long> {
+// }
+
+
