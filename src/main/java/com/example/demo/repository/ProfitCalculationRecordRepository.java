@@ -16,5 +16,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 public interface ProfitCalculationRecordRepository
         extends JpaRepository<ProfitCalculationRecordEntity, Long> {
 
-    ProfitCalculationRecord findByMenuItemId(Long menuItemId);
+    ProfitCalculationRecordEntity findByMenuItemId(Long menuItemId);
 }
