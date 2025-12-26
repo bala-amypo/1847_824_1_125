@@ -12,44 +12,35 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.web.bind.annotation.*;
 
-import org.springframework.security.crypto.password.PasswordEncoder;
-
 @RestController
 @RequestMapping("/auth")
 public class AuthController {
 
-    private final UserService userService;
+    private final AuthenticationManager authenticationManager;
     private final JwtTokenProvider jwtTokenProvider;
-    private final PasswordEncoder passwordEncoder;
+    private final UserService userService;
 
-    public AuthController(UserService userService,
+    public AuthController(AuthenticationManager authenticationManager,
                           JwtTokenProvider jwtTokenProvider,
-                          PasswordEncoder passwordEncoder) {
-        this.userService = userService;
+                          UserService userService) {
+        this.authenticationManager = authenticationManager;
         this.jwtTokenProvider = jwtTokenProvider;
-        this.passwordEncoder = passwordEncoder;
+        this.userService = userService;
     }
 
-    // ================= REGISTER =================
     @PostMapping("/register")
     public ResponseEntity<User> register(@RequestBody RegisterRequest request) {
-        User user = userService.register(request);
-        return new ResponseEntity<>(user, HttpStatus.CREATED);
+        return new ResponseEntity<>(userService.register(request), HttpStatus.CREATED);
     }
 
-    // ================= LOGIN =================
     @PostMapping("/login")
     public ResponseEntity<AuthResponse> login(@RequestBody AuthRequest request) {
 
-        User user = userService.findByEmail(request.getEmail());
-        if (user == null) {
-            throw new RuntimeException("User Not Found");
-        }
+        authenticationManager.authenticate(
+                new UsernamePasswordAuthenticationToken(
+                        request.getEmail(), request.getPassword()));
 
-        if (!passwordEncoder.matches(request.getPassword(), user.getPassword())) {
-            throw new RuntimeException("Invalid Credentials");
-        }
-
+        User user = userService.login(request);
         String token = jwtTokenProvider.generateToken(null, user);
 
         return ResponseEntity.ok(new AuthResponse(token));
