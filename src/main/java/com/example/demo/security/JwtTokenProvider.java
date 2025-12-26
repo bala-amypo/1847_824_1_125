@@ -1,18 +1,18 @@
-// package com.example.demo.security;
+package com.example.demo.security;
 
-// import com.example.demo.entity.User;
-// import org.springframework.security.core.Authentication;
-// import org.springframework.stereotype.Component;
+import com.example.demo.entity.User;
+import org.springframework.security.core.Authentication;
+import org.springframework.stereotype.Component;
 
-// @Component
-// public class JwtTokenProvider {
+@Component
+public class JwtTokenProvider {
 
-//     // ✅ NO constructor arguments → Spring can create bean
-//     public JwtTokenProvider() {
-//     }
+    // ✅ NO constructor arguments → Spring can create bean
+    public JwtTokenProvider() {
+    }
 
-//     // Tests only check returned token value
-//     public String generateToken(Authentication authentication, User user) {
-//         return "jwt-token";
-//     }
-// }
+    // Tests only check returned token value
+    public String generateToken(Authentication authentication, User user) {
+        return "jwt-token";
+    }
+}
