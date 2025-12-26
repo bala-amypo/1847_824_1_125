@@ -1,16 +1,3 @@
-// package com.example.demo.service;
-
-// import com.example.demo.entity.ProfitCalculationRecord;
-// import java.util.List;
-
-// public interface ProfitCalculationService {
-
-//     ProfitCalculation save(ProfitCalculation record);
-
-//     List<ProfitCalculation> getAll();
-// }
-
-
 package com.example.demo.service;
 
 import com.example.demo.entity.ProfitCalculationRecord;
@@ -18,7 +5,16 @@ import java.util.List;
 
 public interface ProfitCalculationService {
 
-    ProfitCalculationRecord save(ProfitCalculationRecord record);
+    ProfitCalculationRecord calculateProfit(Long menuItemId);
 
-    List<ProfitCalculationRecord> getAll();
+    ProfitCalculationRecord getCalculationById(Long id);
+
+    List<ProfitCalculationRecord> getCalculationsForMenuItem(Long menuItemId);
+
+    List<ProfitCalculationRecord> getAllCalculations();
+
+    List<ProfitCalculationRecord> findRecordsWithMarginBetween(
+            Double minMargin,
+            Double maxMargin
+    );
 }
