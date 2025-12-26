@@ -7,7 +7,9 @@ import org.springframework.stereotype.Component;
 @Component
 public class JwtTokenProvider {
 
-    public JwtTokenProvider(String secret, long validityInMs) {}
+    public JwtTokenProvider(String secret, long validityInMs) {
+        // Constructor required by test
+    }
 
     public String generateToken(Authentication authentication, User user) {
         return "jwt-token";
