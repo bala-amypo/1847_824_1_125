@@ -1,69 +1,36 @@
 package com.example.demo.entity;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
+import java.math.BigDecimal;
 
 @Entity
-@Table(name = "profit_records")
 public class ProfitCalculationRecord {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Long menuItemId;
-    private Double costPrice;
-    private Double sellingPrice;
-    private Double profit;
+    @ManyToOne
+    private MenuItem menuItem;
 
-    public ProfitCalculationRecord() {
-    }
+    private BigDecimal totalCost;
+    private Double profitMargin;
 
-    public ProfitCalculationRecord(Long id, Long menuItemId, Double costPrice,
-                                         Double sellingPrice, Double profit) {
-        this.id = id;
-        this.menuItemId = menuItemId;
-        this.costPrice = costPrice;
-        this.sellingPrice = sellingPrice;
-        this.profit = profit;
-    }
+    public ProfitCalculationRecord() {}
 
-    public Long getId() {
-        return id;
-    }
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
 
-    public Long getMenuItemId() {
-        return menuItemId;
-    }
+    public MenuItem getMenuItem() { return menuItem; }
+    public void setMenuItem(MenuItem menuItem) { this.menuItem = menuItem; }
 
-    public Double getCostPrice() {
-        return costPrice;
-    }
+    public BigDecimal getTotalCost() { return totalCost; }
+    public void setTotalCost(BigDecimal totalCost) { this.totalCost = totalCost; }
 
-    public Double getSellingPrice() {
-        return sellingPrice;
-    }
-
-    public Double getProfit() {
-        return profit;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public void setMenuItemId(Long menuItemId) {
-        this.menuItemId = menuItemId;
-    }
-
-    public void setCostPrice(Double costPrice) {
-        this.costPrice = costPrice;
-    }
-
-    public void setSellingPrice(Double sellingPrice) {
-        this.sellingPrice = sellingPrice;
-    }
-
-    public void setProfit(Double profit) {
-        this.profit = profit;
-    }
+    public Double getProfitMargin() { return profitMargin; }
+    public void setProfitMargin(Double profitMargin) { this.profitMargin = profitMargin; }
 }

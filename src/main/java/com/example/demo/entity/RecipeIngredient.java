@@ -1,58 +1,37 @@
 package com.example.demo.entity;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 
 @Entity
-@Table(name = "recipe_ingredients")
 public class RecipeIngredient {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Long menuItemId;
-    private String ingredientName;
+    @ManyToOne
+    private MenuItem menuItem;
+
+    @ManyToOne
+    private Ingredient ingredient;
+
     private Double quantity;
 
-    public RecipeIngredient() {
-    }
+    public RecipeIngredient() {}
 
-    public RecipeIngredient(Long id, Long menuItemId, String ingredientName, Double quantity) {
-        this.id = id;
-        this.menuItemId = menuItemId;
-        this.ingredientName = ingredientName;
-        this.quantity = quantity;
-    }
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
 
-    public Long getId() {
-        return id;
-    }
+    public MenuItem getMenuItem() { return menuItem; }
+    public void setMenuItem(MenuItem menuItem) { this.menuItem = menuItem; }
 
-    public Long getMenuItemId() {
-        return menuItemId;
-    }
+    public Ingredient getIngredient() { return ingredient; }
+    public void setIngredient(Ingredient ingredient) { this.ingredient = ingredient; }
 
-    public String getIngredientName() {
-        return ingredientName;
-    }
-
-    public Double getQuantity() {
-        return quantity;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public void setMenuItemId(Long menuItemId) {
-        this.menuItemId = menuItemId;
-    }
-
-    public void setIngredientName(String ingredientName) {
-        this.ingredientName = ingredientName;
-    }
-
-    public void setQuantity(Double quantity) {
-        this.quantity = quantity;
-    }
+    public Double getQuantity() { return quantity; }
+    public void setQuantity(Double quantity) { this.quantity = quantity; }
 }

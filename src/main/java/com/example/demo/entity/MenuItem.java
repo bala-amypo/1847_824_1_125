@@ -1,9 +1,15 @@
 package com.example.demo.entity;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
+import java.math.BigDecimal;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
-@Table(name = "menu_items")
 public class MenuItem {
 
     @Id
@@ -11,48 +17,30 @@ public class MenuItem {
     private Long id;
 
     private String name;
-    private Double price;
-    private Boolean active;
+    private String description;
+    private BigDecimal sellingPrice;
+    private Boolean active = true;
 
-    public MenuItem() {
-    }
+    @ManyToMany
+    private Set<Category> categories = new HashSet<>();
 
-    public MenuItem(Long id, String name, Double price, Boolean active) {
-        this.id = id;
-        this.name = name;
-        this.price = price;
-        this.active = active;
-    }
+    public MenuItem() {}
 
-    public Long getId() {
-        return id;
-    }
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
 
-    public String getName() {
-        return name;
-    }
+    public String getName() { return name; }
+    public void setName(String name) { this.name = name; }
 
-    public Double getPrice() {
-        return price;
-    }
+    public String getDescription() { return description; }
+    public void setDescription(String description) { this.description = description; }
 
-    public Boolean getActive() {
-        return active;
-    }
+    public BigDecimal getSellingPrice() { return sellingPrice; }
+    public void setSellingPrice(BigDecimal sellingPrice) { this.sellingPrice = sellingPrice; }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+    public Boolean getActive() { return active; }
+    public void setActive(Boolean active) { this.active = active; }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setPrice(Double price) {
-        this.price = price;
-    }
-
-    public void setActive(Boolean active) {
-        this.active = active;
-    }
+    public Set<Category> getCategories() { return categories; }
+    public void setCategories(Set<Category> categories) { this.categories = categories; }
 }

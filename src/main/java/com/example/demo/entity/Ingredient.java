@@ -1,4 +1,3 @@
-
 package com.example.demo.entity;
 
 import jakarta.persistence.Column;
@@ -6,63 +5,36 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import java.math.BigDecimal;
 
 @Entity
-@Table(name = "ingredients")
 public class Ingredient {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, unique = true)
+    @Column(unique = true)
     private String name;
 
-    private Double cost;
-
+    private String unit;
+    private BigDecimal costPerUnit;
     private Boolean active = true;
 
-    public Ingredient() {
-    }
+    public Ingredient() {}
 
-    public Ingredient(String name, Double cost) {
-        this.name = name;
-        this.cost = cost;
-        this.active = true;
-    }
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
 
-    public Long getId() {
-        return id;
-    }
+    public String getName() { return name; }
+    public void setName(String name) { this.name = name; }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+    public String getUnit() { return unit; }
+    public void setUnit(String unit) { this.unit = unit; }
 
-    public String getName() {
-        return name;
-    }
+    public BigDecimal getCostPerUnit() { return costPerUnit; }
+    public void setCostPerUnit(BigDecimal costPerUnit) { this.costPerUnit = costPerUnit; }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Double getCost() {
-        return cost;
-    }
-
-    public void setCost(Double cost) {
-        this.cost = cost;
-    }
-
-    public Boolean getActive() {
-        return active;
-    }
-
-    public void setActive(Boolean active) {
-        this.active = active;
-    }
+    public Boolean getActive() { return active; }
+    public void setActive(Boolean active) { this.active = active; }
 }
-
-
