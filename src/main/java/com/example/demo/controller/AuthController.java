@@ -16,41 +16,40 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/auth")
 public class AuthController {
 
-    private final JwtTokenProvider jwtTokenProvider;
     private final UserService userService;
+    private final JwtTokenProvider jwtTokenProvider;
+    private final PasswordEncoder passwordEncoder;
 
-    public AuthController(
+    public AuthController(UserService userService,
                           JwtTokenProvider jwtTokenProvider,
-                          UserService userService) {
-        this.jwtTokenProvider = jwtTokenProvider;
+                          PasswordEncoder passwordEncoder) {
         this.userService = userService;
+        this.jwtTokenProvider = jwtTokenProvider;
+        this.passwordEncoder = passwordEncoder;
     }
 
+    // ================= REGISTER =================
     @PostMapping("/register")
     public ResponseEntity<User> register(@RequestBody RegisterRequest request) {
-        return new ResponseEntity<>(userService.register(request), HttpStatus.CREATED);
+        User user = userService.register(request);
+        return new ResponseEntity<>(user, HttpStatus.CREATED);
     }
 
+    // ================= LOGIN =================
     @PostMapping("/login")
     public ResponseEntity<AuthResponse> login(@RequestBody AuthRequest request) {
-        ExtraStudent student = ser.CheckEmail(request.getEmail());
-        if (student == null) {
+
+        User user = userService.findByEmail(request.getEmail());
+        if (user == null) {
             throw new RuntimeException("User Not Found");
-
-        }
-        if (!encoder.matches(request.getPassword(), student.getPassword())) {
-            throw new RuntimeException("Invalid credentials");
         }
 
-        // return "Login successful for " + student.getEmail();
-        authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(
-                        request.getEmail(), request.getPassword()));
+        if (!passwordEncoder.matches(request.getPassword(), user.getPassword())) {
+            throw new RuntimeException("Invalid Credentials");
+        }
 
-        User user = userService.login(request);
         String token = jwtTokenProvider.generateToken(null, user);
 
         return ResponseEntity.ok(new AuthResponse(token));
     }
 }
- 
