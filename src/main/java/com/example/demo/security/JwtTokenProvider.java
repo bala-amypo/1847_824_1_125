@@ -13,6 +13,6 @@ public class JwtTokenProvider {
 
     // Tests only check returned token value
     public String generateToken(Authentication authentication, User user) {
-        return "jwt-token";
+        return "dummy-jwt-token";
     }
 }
