@@ -10,7 +10,7 @@ public class DemoApplication {
         System.out.println(new BCryptPasswordEncoder().encode("1234"));
 
 		BCryptPasswordEncoder encoder=new BCryptPasswordEncoder();
-		if(encoder.matches("1234","$2a$10$xK8WnwT.t1fJVx6axkskhOf9o266gHgrX3TDaR1fgMMBUw/zvhsEu")){
+		if(encoder.matches("1234","$2a$10$BknWbUTkOkMC3YINo9ZLsO2p19EMsnPi3Jye4fg8H55qYRNGCsCEy")){
 			System.out.println("password matched");
 		}else{
 			System.out.println("no match");
