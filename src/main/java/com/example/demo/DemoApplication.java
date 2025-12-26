@@ -10,7 +10,7 @@ public class DemoApplication {
         System.out.println(new BCryptPasswordEncoder().encode("Amypo"));
 
 		BCryptPasswordEncoder encoder=new BCryptPasswordEncoder();
-		if(!encoder.matches("Amypo","$2a$10$x3hpTqKAoS6lhSkx9YJAUume7JBy7KeHqcZRraHKmBJ7rbBuK3O1W")){
+		if(encoder.matches("Amypo","$2a$10$x3hpTqKAoS6lhSkx9YJAUume7JBy7KeHqcZRraHKmBJ7rbBuK3O1W")){
 			System.out.println("password matched");
 		}else{
 			System.out.println("no match");
