@@ -2,12 +2,11 @@ package com.example.demo.security;
 
 import com.example.demo.entity.User;
 import com.example.demo.repository.UserRepository;
+import java.util.Optional;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-
-import java.util.Collections;
 
 @Service
 public class CustomUserDetailsService implements UserDetailsService {
@@ -19,18 +18,17 @@ public class CustomUserDetailsService implements UserDetailsService {
     }
 
     @Override
-    public UserDetails loadUserByUsername(String username)
-            throws UsernameNotFoundException {
+    public UserDetails loadUserByUsername(String email) {
 
-        // username = email in your project
-        User user = userRepository.findByEmail(username)
-                .orElseThrow(() ->
-                        new UsernameNotFoundException("User not found"));
+        Optional<User> userOpt = userRepository.findByEmailIgnoreCase(email);
 
-        return new org.springframework.security.core.userdetails.User(
-                user.getEmail(),
-                user.getPassword(),   // MUST be encoded password
-                Collections.emptyList()
-        );
+        User user = userOpt.orElseThrow(() ->
+                new UsernameNotFoundException("not found"));
+
+        return org.springframework.security.core.userdetails.User
+                .withUsername(user.getEmail())
+                .password(user.getPassword())
+                .roles(user.getRole().replace("ROLE_", ""))
+                .build();
     }
 }

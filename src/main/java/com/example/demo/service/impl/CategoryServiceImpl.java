@@ -1,48 +1,52 @@
 package com.example.demo.service.impl;
 
 import com.example.demo.entity.Category;
+import com.example.demo.exception.BadRequestException;
+import com.example.demo.exception.ResourceNotFoundException;
 import com.example.demo.repository.CategoryRepository;
 import com.example.demo.service.CategoryService;
-import org.springframework.stereotype.Service;
-
 import java.util.List;
+import org.springframework.stereotype.Service;
 
 @Service
 public class CategoryServiceImpl implements CategoryService {
 
-    private final CategoryRepository repository;
+    private final CategoryRepository categoryRepository;
 
-    public CategoryServiceImpl(CategoryRepository repository) {
-        this.repository = repository;
+    public CategoryServiceImpl(CategoryRepository categoryRepository) {
+        this.categoryRepository = categoryRepository;
     }
 
     @Override
-    public Category create(Category category) {
-        category.setActive(true);
-        return repository.save(category);
+    public Category createCategory(Category category) {
+        if (categoryRepository.findByNameIgnoreCase(category.getName()).isPresent()) {
+            throw new BadRequestException("Email already in use");
+        }
+        return categoryRepository.save(category);
     }
 
     @Override
-    public List<Category> getAll() {
-        return repository.findAll();
-    }
-
-    @Override
-    public Category getById(Long id) {
-        return repository.findById(id).orElseThrow();
-    }
-
-    @Override
-    public Category update(Long id, Category category) {
-        Category existing = getById(id);
+    public Category updateCategory(Long id, Category category) {
+        Category existing = getCategoryById(id);
         existing.setName(category.getName());
-        return repository.save(existing);
+        return categoryRepository.save(existing);
     }
 
     @Override
-    public void deactivate(Long id) {
-        Category existing = getById(id);
-        existing.setActive(false);
-        repository.save(existing);
+    public Category getCategoryById(Long id) {
+        return categoryRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("not found"));
+    }
+
+    @Override
+    public List<Category> getAllCategories() {
+        return categoryRepository.findAll();
+    }
+
+    @Override
+    public void deactivateCategory(Long id) {
+        Category category = getCategoryById(id);
+        category.setActive(false);
+        categoryRepository.save(category);
     }
 }
