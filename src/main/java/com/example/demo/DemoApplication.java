@@ -7,10 +7,10 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 public class DemoApplication {
     public static void main(String[] args) {
         SpringApplication.run(DemoApplication.class, args);
-        System.out.println(new BCryptPasswordEncoder().encode("Amypo"));
+        System.out.println(new BCryptPasswordEncoder().encode("1234"));
 
 		BCryptPasswordEncoder encoder=new BCryptPasswordEncoder();
-		if(encoder.matches("Amypo","$2a$10$x3hpTqKAoS6lhSkx9YJAUume7JBy7KeHqcZRraHKmBJ7rbBuK3O1W")){
+		if(encoder.matches("1234","$2a$10$x3hpTqKAoS6lhSkx9YJAUume7JBy7KeHqcZRraHKmBJ7rbBuK3O1W")){
 			System.out.println("password matched");
 		}else{
 			System.out.println("no match");
