@@ -16,17 +16,17 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/auth")
 public class AuthController {
 
-    private final AuthenticationManager authenticationManager;
+    // private final AuthenticationManager authenticationManager;
     private final JwtTokenProvider jwtTokenProvider;
     private final UserService userService;
 
-    public AuthController(AuthenticationManager authenticationManager,
-                          JwtTokenProvider jwtTokenProvider,
-                          UserService userService) {
-        this.authenticationManager = authenticationManager;
-        this.jwtTokenProvider = jwtTokenProvider;
-        this.userService = userService;
-    }
+    // public AuthController(AuthenticationManager authenticationManager,
+    //                       JwtTokenProvider jwtTokenProvider,
+    //                       UserService userService) {
+    //     this.authenticationManager = authenticationManager;
+    //     this.jwtTokenProvider = jwtTokenProvider;
+    //     this.userService = userService;
+    // }
 
     @PostMapping("/register")
     public ResponseEntity<User> register(@RequestBody RegisterRequest request) {
