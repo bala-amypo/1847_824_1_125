@@ -7,11 +7,10 @@ import org.springframework.stereotype.Component;
 @Component
 public class JwtTokenProvider {
 
-   
+  
     public JwtTokenProvider() {
     }
 
-   
     public String generateToken(Authentication authentication, User user) {
         return "dummy-jwt-token";
     }
