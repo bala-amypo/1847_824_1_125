@@ -6,6 +6,7 @@ import com.example.demo.dto.RegisterRequest;
 import com.example.demo.entity.User;
 import com.example.demo.util.JwtUtil;
 import com.example.demo.service.UserService;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -28,14 +29,18 @@ public class AuthController {
         this.userService = userService;
     }
 
+    // ✅ REGISTER
     @PostMapping("/register")
     public ResponseEntity<User> register(@RequestBody RegisterRequest request) {
-        return new ResponseEntity<>(userService.register(request), HttpStatus.CREATED);
+        User savedUser = userService.register(request);
+        return new ResponseEntity<>(savedUser, HttpStatus.CREATED);
     }
 
+    // ✅ LOGIN
     @PostMapping("/login")
     public ResponseEntity<AuthResponse> login(@RequestBody AuthRequest request) {
 
+        // 🔐 Authenticate user
         authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
                         request.getEmail(),
@@ -43,14 +48,11 @@ public class AuthController {
                 )
         );
 
+        // 👤 Get user from DB
         User user = userService.login(request);
-        String token = jwtUtil.generateToken(
-                org.springframework.security.core.userdetails.User
-                        .withUsername(user.getEmail())
-                        .password(user.getPassword())
-                        .authorities(user.getRole())
-                        .build()
-        );
+
+        // 🔑 Generate JWT using ENTITY User
+        String token = jwtUtil.generateToken(user);
 
         return ResponseEntity.ok(new AuthResponse(token));
     }
