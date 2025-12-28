@@ -9,13 +9,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import io.swagger.v3.oas.models.security.SecurityScheme;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 
 @RestController
 @RequestMapping("/api/profit")
-@SecurityScheme(
-    name = "bearerAuth"
-)
+@SecurityRequirement(name="bearerAuth")
 public class ProfitCalculationController {
 
     private final ProfitCalculationServiceImpl profitService;
