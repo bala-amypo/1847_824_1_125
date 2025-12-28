@@ -17,7 +17,7 @@ import io.swagger.v3.oas.models.security.SecurityScheme;
 @RestController
 @RequestMapping("/api/menu-items")
 @SecurityScheme(
-    name = "bearerAuth",
+    name = "bearerAuth"
 )
 public class MenuItemController {
 
