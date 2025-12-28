@@ -12,6 +12,9 @@ import io.swagger.v3.oas.models.security.SecurityScheme;
 
 @RestController
 @RequestMapping("/api/users")
+@SecurityScheme(
+    name = "bearerAuth"
+)
 public class UserController {
 
     private final UserService userService;

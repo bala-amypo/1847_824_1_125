@@ -17,6 +17,9 @@ import io.swagger.v3.oas.models.security.SecurityScheme;
 
 @RestController
 @RequestMapping("/api/recipe-ingredients")
+@SecurityScheme(
+    name = "bearerAuth"
+)
 public class RecipeIngredientController {
 
     private final RecipeIngredientService recipeIngredientService;

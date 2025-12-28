@@ -9,6 +9,9 @@ import org.springframework.web.bind.annotation.*;
 import io.swagger.v3.oas.models.security.SecurityScheme;
 @RestController
 @RequestMapping("/api/ingredients")
+@SecurityScheme(
+    name = "bearerAuth",
+)
 public class IngredientController {
 
     private final IngredientService ingredientService;

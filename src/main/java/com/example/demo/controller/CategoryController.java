@@ -16,7 +16,9 @@ import io.swagger.v3.oas.models.security.SecurityScheme;
 
 @RestController
 @RequestMapping("/api/categories")
-
+@SecurityScheme(
+    name = "bearerAuth",
+)
 public class CategoryController {
 
     private final CategoryService categoryService;

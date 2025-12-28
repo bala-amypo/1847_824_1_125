@@ -13,6 +13,9 @@ import io.swagger.v3.oas.models.security.SecurityScheme;
 
 @RestController
 @RequestMapping("/api/profit")
+@SecurityScheme(
+    name = "bearerAuth"
+)
 public class ProfitCalculationController {
 
     private final ProfitCalculationServiceImpl profitService;
