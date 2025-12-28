@@ -17,4 +17,5 @@ public class OpenApiConfig {
                         new Server().url("https://9051.32procr.amypo.ai/")
                 ));
         }
+        
 }
